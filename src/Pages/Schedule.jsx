@@ -1,7 +1,7 @@
 
 function Schedule() {
   return (
-    <div>Schedule</div>
+    <div className="schedule">Schedule</div>
   )
 }
 
