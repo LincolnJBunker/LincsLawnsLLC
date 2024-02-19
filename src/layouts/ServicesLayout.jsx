@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom"
+import { NavLink, Outlet } from "react-router-dom";
 
 function ServicesLayout() {
   return (
@@ -7,7 +7,7 @@ function ServicesLayout() {
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, quis!</p>
 
         <h3>
-        <NavLink to="lawncareservices">Lawncare Services</NavLink>
+        <NavLink to="lawncare">Lawncare Services</NavLink>
         </h3>
 
         <h3>

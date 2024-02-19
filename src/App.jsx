@@ -22,18 +22,21 @@ import ServicesLayout from "./layouts/ServicesLayout";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
-      <Route path="/" element={<Home />} />
+      <Route index element={<Home />} />
       <Route path="about" element={<About />} />
-      <Route path="services" element={<ServicesLayout />} />
-        <Route path="lawncareservices" element={<Lawncare />}>
+
+      <Route path="services" element={<ServicesLayout />} >
+        <Route path="lawncare" element={<Lawncare />} />
         <Route path="powerwashing" element={<Powerwashing />}/>
         <Route path="grillcleaning" element={<BBQ />}/>
       </Route>
+
       <Route path="schedule" element={<Schedule />} />
       <Route path="testimonial" element={<Testimonial />} />
       <Route path="faqs" element={<FAQs />} />
       <Route path="contact" element={<Contact />} />
       <Route path="loginsignup" element={<LoginSignup />} />
+
   </Route>
   )
 )
