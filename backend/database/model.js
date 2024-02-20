@@ -5,7 +5,7 @@ import connectToDB from './db.js';
 
 export const db = await connectToDB('postgresql:///lincllc')
 
-export class User extends Model {
+class User extends Model {
     [util.inspect.custom](){
         return this.toJSON
     }
@@ -16,9 +16,14 @@ User.init(
         userId: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true
         },
-        username: {
+        firstName: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        lastName: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -41,7 +46,7 @@ User.init(
     }
 )
 
-export class Service extends Model {
+class Service extends Model {
     [util.inspect.custom](){
         return this.toJSON
     }
@@ -52,7 +57,8 @@ Service.init(
         servicesId: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true
         },
         serviceName: {
             type: DataTypes.STRING,
@@ -73,7 +79,7 @@ Service.init(
     }
 )
 
-export class Appointment extends Model {
+class Appointment extends Model {
     [util.inspect.custom](){
         return this.toJSON
     }
@@ -84,20 +90,22 @@ Appointment.init(
         appointmentId: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true
         },
-        userId: {
+        // userId: {
             
-        },
-        serviceId: {
+        // },
+        // serviceId: {
 
-        },
+        // },
         appointmentDate: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
         appointmentTime: {
-
+            type: DataTypes.INTEGER,
+            allowNull: false
         }
     },
     {
@@ -107,9 +115,11 @@ Appointment.init(
 )
 
 //Define Relationships
+//a user can have many appointments but an appointment can only be tied to one user --> one to many
 User.hasMany(Appointment, { foreignKey: 'userId' });
 Appointment.belongsTo(User, { foreignKey: 'userId' });
 
+//an appointment be tied to many services and a service can have many appointments --> many to may
 Appointment.belongsToMany(Service, { through: 'AppointmentService' });
 Service.belongsToMany(Appointment, { through: 'AppointmentService' });
 
@@ -119,5 +129,7 @@ if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
     await db.sync();
     console.log('Finished syncing database!');
   }
+
+await db.close()
 
 export { User, Service, Appointment };

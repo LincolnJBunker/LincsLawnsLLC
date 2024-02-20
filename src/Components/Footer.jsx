@@ -1,17 +1,20 @@
 
 function Footer() {
   return (
-    <div>
-        <ul>
-            <li>
-                Contact
-            </li>
-            
-            <li>
-                FAQ's
-            </li>
-        </ul>
-    </div>
+    <footer>
+        <div>
+            <ul>
+                <li>
+                    Contact
+                </li>
+                
+                <li>
+                    FAQ's
+                </li>
+            </ul>
+        </div>
+    </footer>
+
   )
 }
 
