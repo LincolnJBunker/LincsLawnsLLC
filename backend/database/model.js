@@ -1,16 +1,17 @@
 import { DataTypes, Model } from 'sequelize';
 import util from 'util';
+import url from 'url';
 import connectToDB from './db.js';
 
-const db = await connectToDB('postgresql:///users')
+export const db = await connectToDB('postgresql:///lincllc')
 
-export class Users extends Model {
+export class User extends Model {
     [util.inspect.custom](){
         return this.toJSON
     }
 }
 
-Users.init(
+User.init(
     {
         userId: {
             type: DataTypes.INTEGER,
@@ -40,13 +41,13 @@ Users.init(
     }
 )
 
-export class Services extends Model {
+export class Service extends Model {
     [util.inspect.custom](){
         return this.toJSON
     }
 }
 
-Services.init(
+Service.init(
     {
         servicesId: {
             type: DataTypes.INTEGER,
@@ -72,13 +73,13 @@ Services.init(
     }
 )
 
-export class Appointments extends Model {
+export class Appointment extends Model {
     [util.inspect.custom](){
         return this.toJSON
     }
 }
 
-Appointments.init(
+Appointment.init(
     {
         appointmentId: {
             type: DataTypes.INTEGER,
@@ -87,9 +88,31 @@ Appointments.init(
         },
         userId: {
             
+        },
+        serviceId: {
+
+        },
+        appointmentDate: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        appointmentTime: {
+
         }
+    },
+    {
+        modelName: 'appointment',
+        sequelize: db,
     }
 )
 
+//Define Relationships
 
-export default db;
+
+if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
+    console.log('Syncing database...');
+    await db.sync();
+    console.log('Finished syncing database!');
+  }
+
+export { User, Service, Appointment };

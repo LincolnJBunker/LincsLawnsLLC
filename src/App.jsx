@@ -1,10 +1,9 @@
 import React from "react";
-import { createBrowserRouter, Route, NavLink, createRoutesFromElements, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Route, createRoutesFromElements, RouterProvider } from "react-router-dom";
 
 //pages
 import Home from "./Pages/Home"
 import About from "./Pages/About"
-import Services from "./Pages/Services/Services"
 import Schedule from "./Pages/Schedule"
 import Testimonial from "./Pages/Testimonial"
 import Contact from "./Pages/Contact"
@@ -18,6 +17,7 @@ import BBQ from "./Pages/Services/BBQ";
 import RootLayout from "./layouts/RootLayout";
 import ServicesLayout from "./layouts/ServicesLayout";
 
+import Footer from "./Components/Footer";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -46,8 +46,11 @@ const router = createBrowserRouter(
 function App() {
 
   return (
-    
-    <RouterProvider router={router} />
+    <>
+      <RouterProvider router={router} />
+
+      <Footer />
+    </>
 
   )
 }

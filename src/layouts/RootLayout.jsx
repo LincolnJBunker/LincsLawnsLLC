@@ -3,7 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 function RootLayout() {
   return (
     <div className="root-layout">
-        <header>
+      <header>
             <nav>
                 <h1>WebsiteName/Logo</h1>
                 <NavLink to="/">Home</NavLink>
