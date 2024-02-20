@@ -107,6 +107,11 @@ Appointment.init(
 )
 
 //Define Relationships
+User.hasMany(Appointment, { foreignKey: 'userId' });
+Appointment.belongsTo(User, { foreignKey: 'userId' });
+
+Appointment.belongsToMany(Service, { through: 'AppointmentService' });
+Service.belongsToMany(Appointment, { through: 'AppointmentService' });
 
 
 if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
