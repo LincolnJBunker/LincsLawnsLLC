@@ -17,8 +17,6 @@ import BBQ from "./Pages/Services/BBQ";
 import RootLayout from "./layouts/RootLayout";
 import ServicesLayout from "./layouts/ServicesLayout";
 
-import Header from "./Components/Header";
-import Footer from "./Components/Footer";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

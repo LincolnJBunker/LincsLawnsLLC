@@ -12,7 +12,9 @@ function TestimonialForm() {
         </label>
         <label>
             Testimonial
+            <input type="text" name="testimonial" />
         </label>
+        <button type="submit">Submit</button>
     </form>
   )
 }

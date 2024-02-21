@@ -9,19 +9,19 @@ await db.sync({
     force: true
 });
 
-// const servicesInDB = await Promise.all(serviceData.map(async (service) => {
-//     //destructure the service object
-//     const { serviceName, description, price } = service;
+const servicesInDB = await Promise.all(serviceData.map(async (service) => {
+    //destructure the service object
+    const { serviceName, description, price } = service;
 
-//     const newService = Service.create({
-//         serviceName,
-//         description,
-//         price
-//     });
-//     return newService
-// }),
-// );
-// console.log(servicesInDB)
+    const newService = Service.create({
+        serviceName,
+        description,
+        price
+    });
+    return newService
+}),
+);
+console.log(servicesInDB)
 
 console.log('Database tables created');
 console.log('Inserting data...');
