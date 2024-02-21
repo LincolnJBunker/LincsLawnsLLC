@@ -1,5 +1,5 @@
 import { User, Appointment, Service, db } from './model.js';
-
+import serviceData from './services.json' assert { type: 'json' };
 import lodash from 'lodash';
 
 console.log('Syncing Database');
@@ -8,6 +8,20 @@ console.log('Syncing Database');
 await db.sync({
     force: true
 });
+
+// const servicesInDB = await Promise.all(serviceData.map(async (service) => {
+//     //destructure the service object
+//     const { serviceName, description, price } = service;
+
+//     const newService = Service.create({
+//         serviceName,
+//         description,
+//         price
+//     });
+//     return newService
+// }),
+// );
+// console.log(servicesInDB)
 
 console.log('Database tables created');
 console.log('Inserting data...');
@@ -24,7 +38,7 @@ const josh = await User.create({
 
 const aeration = await Service.create({
     serviceName: 'Aeration',
-    description: 'helping ones lawn breath after harsh winter month',
+    description: 'helping ones lawn breath after harsh winter months',
     price: '$50'
 });
 
@@ -38,7 +52,7 @@ const powerwashing = await Service.create({
     serviceName: 'Powerwashing',
     description: 'Cleaning your driveway or patio with a powerwasher',
     price: '$60'
-});
+})
 
 const grillCleaning = await Service.create({
     serviceName: 'Grill Cleaning',

@@ -1,20 +1,10 @@
+import FooterLayout from "../layouts/FooterLayout";
 
 function Footer() {
   return (
-    <footer>
-        <div>
-            <ul>
-                <li>
-                    Contact
-                </li>
-                
-                <li>
-                    FAQ's
-                </li>
-            </ul>
-        </div>
-    </footer>
-
+    <div className="footer">
+        <FooterLayout />
+    </div>
   )
 }
 

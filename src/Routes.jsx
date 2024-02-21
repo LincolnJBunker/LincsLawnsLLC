@@ -17,9 +17,6 @@ import BBQ from "./Pages/Services/BBQ";
 import RootLayout from "./layouts/RootLayout";
 import ServicesLayout from "./layouts/ServicesLayout";
 
-import Header from "./Components/Header";
-import Footer from "./Components/Footer";
-
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
@@ -41,19 +38,11 @@ const router = createBrowserRouter(
   </Route>
   )
 )
-
-
-
-function App() {
-
+function Routes() {
   return (
-    <>
-      <Header />
-
-      {/* <Footer /> */}
-    </>
-
+    <div>Routes</div>
   )
 }
 
-export default App
+// export default Routes
+export default router

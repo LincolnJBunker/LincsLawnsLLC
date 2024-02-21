@@ -1,7 +1,11 @@
+import LoginCreateAccount from "../Components/LoginCreateAccount/LoginCreateAccount"
+
 
 function LoginSignup() {
   return (
-    <div>Login-Signup</div>
+    <div>
+      <LoginCreateAccount />
+    </div>
   )
 }
 

@@ -1,0 +1,22 @@
+[
+    {
+        "serviceName": "Aeration",
+        "description": "helping ones lawn breath after harsh winter months",
+        "price": "$50"
+    },
+    {
+        "serviceName": "Lawn Mowing",
+        "description": "mowing, edging, and weedwacking your yard",
+        "price": "$30"
+    },
+    {
+        "serviceName": "Powerwashing",
+        "description": "Cleaning your driveway or patio with a powerwasher",
+        "price": "$60"
+    },
+    {
+        "serviceName": "Grill Cleaning",
+        "description": "Deep cleaning your barbeque or smoker",
+        "price": "$50"
+    }
+]
