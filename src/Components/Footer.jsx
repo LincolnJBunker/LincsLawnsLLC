@@ -1,9 +1,15 @@
-import FooterLayout from "../layouts/FooterLayout";
+import { NavLink, Outlet } from "react-router-dom";
 
 function Footer() {
   return (
     <div className="footer">
-        <FooterLayout />
+        <footer>
+            <nav>
+                <NavLink to='faqs'>FAQ's</NavLink>
+                <NavLink to='contact'>Contact</NavLink>
+            </nav>
+        </footer>
+
     </div>
   )
 }

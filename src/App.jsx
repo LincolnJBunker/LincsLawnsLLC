@@ -22,8 +22,8 @@ import Footer from "./Components/Footer";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<RootLayout />}>
-      <Route index element={<Home />} />
+    <Route path="/" element={<Home />}>
+      {/* <Route index element={<Home />} /> */}
       <Route path="about" element={<About />} />
 
       <Route path="services" element={<ServicesLayout />} >
@@ -39,6 +39,7 @@ const router = createBrowserRouter(
       <Route path="loginsignup" element={<LoginSignup />} />
 
   </Route>
+
   )
 )
 
@@ -48,9 +49,7 @@ function App() {
 
   return (
     <>
-      <Header />
-
-      {/* <Footer /> */}
+      <RouterProvider router={router} />
     </>
 
   )

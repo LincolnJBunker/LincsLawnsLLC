@@ -1,4 +1,4 @@
-import { User, Appointment, Service, db } from './model.js';
+import { Customer, Appointment, Service, db } from './model.js';
 import serviceData from './services.json' assert { type: 'json' };
 import lodash from 'lodash';
 
@@ -28,7 +28,7 @@ console.log('Inserting data...');
 
 //create db entries
 
-const josh = await User.create({
+const josh = await Customer.create({
     firstName: 'Josh',
     lastName: 'Behunin',
     email: 'swaghomeslicejb@gmail.com',

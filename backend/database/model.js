@@ -5,15 +5,15 @@ import connectToDB from './db.js';
 
 export const db = await connectToDB('postgresql:///lincllc')
 
-class User extends Model {
+class Customer extends Model {
     [util.inspect.custom](){
         return this.toJSON
     }
 }
 
-User.init(
+Customer.init(
     {
-        userId: {
+        customerId: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
@@ -31,17 +31,13 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        password: {
-            type: DataTypes.STRING,
-            allownull: false
-        },
         address: {
             type: DataTypes.STRING,
             allowNull: false
         }
     },
     {
-        modelName: 'users',
+        modelName: 'customers',
         sequelize: db,
     }
 )
@@ -116,8 +112,8 @@ Appointment.init(
 
 //Define Relationships
 //a user can have many appointments but an appointment can only be tied to one user --> one to many
-User.hasMany(Appointment, { foreignKey: 'userId' });
-Appointment.belongsTo(User, { foreignKey: 'userId' });
+Customer.hasMany(Appointment, { foreignKey: 'userId' });
+Appointment.belongsTo(Customer, { foreignKey: 'userId' });
 
 //an appointment be tied to many services and a service can have many appointments --> many to may
 Appointment.belongsToMany(Service, { through: 'AppointmentService' });
@@ -132,4 +128,4 @@ if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
 
 await db.close()
 
-export { User, Service, Appointment };
+export { Customer, Service, Appointment };
