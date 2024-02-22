@@ -126,6 +126,6 @@ if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
     console.log('Finished syncing database!');
   }
 
-await db.close()
+// await db.close()
 
 export { Customer, Service, Appointment };
