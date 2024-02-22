@@ -7,6 +7,9 @@ function About() {
       <h1 className="about">About</h1>
 
       <h2>Company Overview</h2>
+      <p>Alpine Twin Peak Maintenance offers various professional services for whatever Your
+        needs may be. Check out some of the services offered for more information!
+      </p>
         <ServiceCards />
       <h2>Mission and Values</h2>
 
