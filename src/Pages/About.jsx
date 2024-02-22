@@ -1,4 +1,5 @@
 import Me from "../Components/Me"
+import ServiceCards from "../Components/ServiceCards"
 
 function About() {
   return (
@@ -6,7 +7,7 @@ function About() {
       <h1 className="about">About</h1>
 
       <h2>Company Overview</h2>
-
+        <ServiceCards />
       <h2>Mission and Values</h2>
 
       <h2>About Me</h2>

@@ -76,6 +76,19 @@ header nav a.active {
   object-fit: cover;
 }
 
+.hello{
+  display: flex;
+  background-color: bisque;
+  align-content: center;
+  justify-content: center;
+}
+
+.hello div{
+  align-items: center;
+  margin: 10px;
+  width: 100%;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
