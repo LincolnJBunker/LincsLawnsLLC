@@ -12,12 +12,14 @@
     "queries": "node backend/database/queries.js"
   },
   "dependencies": {
+    "bootstrap": "^5.3.3",
     "express": "^4.18.2",
     "express-session": "^1.18.0",
     "morgan": "^1.10.0",
     "pg": "^8.11.3",
     "pg-hstore": "^2.3.4",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.10.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.1",
     "sequelize": "^6.37.1",
