@@ -76,7 +76,7 @@ app.use(
 
 import handlerFunctions from './controller.js'
 //Routes
-// app.post('/contact/form', handlerFunctions.sendForm)
+app.post('/api/login', handlerFunctions.login)
 
 //Run server
 ViteExpress.listen(app, 8008, () => console.log("server running on http://localhost:8008"))

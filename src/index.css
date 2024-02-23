@@ -89,6 +89,17 @@ header nav a.active {
   width: 100%;
 }
 
+.carousel{
+  width: 30%; /* Yeap you can change the width and height*/
+  height: 30%;
+  align-content: center;
+  justify-content: center;
+}
+
+.home-nav {
+  cursor: pointer;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

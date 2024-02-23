@@ -40,7 +40,7 @@ const ContactForm = () => {
         
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail">Email</label>
-                    <input type="email" className="form-control" aria-describedby="emailHelp" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                    <input type="email" className="form-control" aria-describedby="emailHelp" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
         
                 <div className="form-group">
