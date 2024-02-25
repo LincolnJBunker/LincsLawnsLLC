@@ -110,6 +110,39 @@ Appointment.init(
     }
 )
 
+class Testimonial extends Model {
+    [util.inspect.custom](){
+        return this.toJSON
+    }
+}
+
+Testimonial.init(
+    {
+        testimonialId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        testimonailName: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        testimonailCity: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        testimonialDesciption: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        }
+    },
+    {
+        modelName: 'testimonial',
+        sequelize: db,
+    }
+)
+
 //Define Relationships
 //a user can have many appointments but an appointment can only be tied to one user --> one to many
 Customer.hasMany(Appointment, { foreignKey: 'userId' });
@@ -118,6 +151,9 @@ Appointment.belongsTo(Customer, { foreignKey: 'userId' });
 //an appointment be tied to many services and a service can have many appointments --> many to may
 Appointment.belongsToMany(Service, { through: 'AppointmentService' });
 Service.belongsToMany(Appointment, { through: 'AppointmentService' });
+
+// Testimonial.hasMany(Service, { foreignKey: 'servicesId' })
+// Service.belongsTo(Testimonial, { foreignKey: 'servicesId' })
 
 
 if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
@@ -128,4 +164,4 @@ if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
 
 // await db.close()
 
-export { Customer, Service, Appointment };
+export { Customer, Service, Appointment, Testimonial };

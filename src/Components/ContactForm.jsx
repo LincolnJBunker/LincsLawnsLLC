@@ -11,7 +11,7 @@ const ContactForm = () => {
         e.preventDefault();
         axios.post('/send', {
             name: name,
-            emaila: email,
+            email: email,
             message: message
         })
         .then((res) => {

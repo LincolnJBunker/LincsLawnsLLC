@@ -1,4 +1,4 @@
-import { Customer, Appointment, Service, db } from './model.js';
+import { Customer, Testimonial, Service, db } from './model.js';
 import serviceData from './services.json' assert { type: 'json' };
 import lodash from 'lodash';
 import connectToDB from './db.js';
@@ -54,7 +54,7 @@ const powerwashing = await Service.create({
     serviceName: 'Powerwashing',
     description: 'Cleaning your driveway or patio with a powerwasher',
     price: '60'
-})
+});
 
 const grillCleaning = await Service.create({
     serviceName: 'Grill Cleaning',
@@ -62,6 +62,27 @@ const grillCleaning = await Service.create({
     price: '50'
 });
 
+const testimonail1 = await Testimonial.create({
+    testimonialName: 'Susie Austin',
+    testimonailCity: 'Sandy',
+    testimonialDescription: `We were super pleased with Lincoln's service. He aerated our lawn and it looks great!`
+});
+
+const testimonial2 = await Testimonial.create({
+    testimonialName: 'Larry Bunker',
+    testimonialCity: 'Millcreek',
+    testimonialDescription: 'We requested Lincoln to clean our BBQ, and it looks as good as new!'
+});
+
+const testimonial3 = await Testimonial.create({
+    testimonialName: 'Jonah Rogers',
+    testimonailCity: 'Provo',
+    testimonialDescription: 'For years my driveway was dirty, the powerwashing service was amazing!'
+});
+
+console.log(testimonail1)
+console.log(testimonial2)
+console.log(testimonial3)
 
 console.log('Database seeded!')
 

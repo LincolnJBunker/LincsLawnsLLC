@@ -33,6 +33,13 @@ const handlerFunctions = {
             customerId: req.session.customerId
         })
     },
+
+    addTestimonial: (req, res) => {
+        const { testimonial } = req.body
+        const newTestimonial = {
+
+        }
+    }
 }
 
 export default handlerFunctions
