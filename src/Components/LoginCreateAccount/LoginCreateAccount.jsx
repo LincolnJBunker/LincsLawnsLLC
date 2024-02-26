@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import './LoginCreateAccount.css';
 import axios from 'axios';
 
@@ -8,7 +9,11 @@ function LoginCreateAccount() {
     const [firstName, setFirstName] = useState('');
     const [email, setEmail] = useState('');
 
-    const [customerId, setCustomerId] = useState(null)
+    // const [customerId, setCustomerId] = useState(null)
+
+    const customerId = useSelector((state) => state.customerId)
+
+    const dispatch = useDispatch();
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -25,12 +30,42 @@ function LoginCreateAccount() {
 
         // get response and save the userId to the redux store
         if (res.data.success) {
-            setCustomerId(res.data.customerId)
+            dispatch({
+                type: 'USER_AUTH',
+                payload: res.data.customerId
+            })
+            setFirstName('')
+            setEmail('')
         } 
         
         alert(res.data.message)
 
     }
+
+    const handleLogout = async () => {
+        const res = await axios.post('/api/logout')
+
+        if(res.data.success) {
+            dispatch({
+                type: 'LOGOUT'
+            })
+        }
+    }
+
+    const sessionCheck = async () => {
+        const res = await axios.post('/api/session-check')
+
+        if (res.data.success) {
+            dispatch({
+                type: 'USER_AUTH', 
+                payload: res.data.customerId
+            })
+        }
+    }
+
+    useEffect(() => {
+        sessionCheck()
+    }, [])
 
   return (
     <>
