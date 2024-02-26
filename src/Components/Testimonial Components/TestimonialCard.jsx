@@ -1,14 +1,17 @@
 import { Card } from "react-bootstrap" 
 
-function TestimonialCard( { name, city, description }) {
+function TestimonialCard({testimonial}) {
+  // console.log(props)
+  const {testimonialName, testimonialCity, testimonialDescription} = testimonial
   return (
     <div className="testimonial-card">
       <div>
         <Card>
           <Card.Body>
-            <p>{description}</p>
-            <h5>{name}</h5>
-            <h6>{city}</h6>
+            <h2>asdf</h2>
+            <p>{testimonialDescription}</p>
+            <h5>{testimonialName}</h5>
+            <h6>{testimonialCity}</h6>
           </Card.Body>
         </Card>
       </div>
