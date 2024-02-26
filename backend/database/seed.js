@@ -62,9 +62,9 @@ const grillCleaning = await Service.create({
     price: '50'
 });
 
-const testimonail1 = await Testimonial.create({
+const testimonial1 = await Testimonial.create({
     testimonialName: 'Susie Austin',
-    testimonailCity: 'Sandy',
+    testimonialCity: 'Sandy',
     testimonialDescription: `We were super pleased with Lincoln's service. He aerated our lawn and it looks great!`
 });
 
@@ -76,11 +76,11 @@ const testimonial2 = await Testimonial.create({
 
 const testimonial3 = await Testimonial.create({
     testimonialName: 'Jonah Rogers',
-    testimonailCity: 'Provo',
+    testimonialCity: 'Provo',
     testimonialDescription: 'For years my driveway was dirty, the powerwashing service was amazing!'
 });
 
-console.log(testimonail1)
+console.log(testimonial1)
 console.log(testimonial2)
 console.log(testimonial3)
 

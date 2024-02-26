@@ -124,15 +124,15 @@ Testimonial.init(
             primaryKey: true,
             autoIncrement: true
         },
-        testimonailName: {
+        testimonialName: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        testimonailCity: {
+        testimonialCity: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        testimonialDesciption: {
+        testimonialDescription: {
             type: DataTypes.STRING,
             allowNull: false,
         }

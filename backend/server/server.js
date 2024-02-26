@@ -76,10 +76,16 @@ app.use(
 
 import handlerFunctions from './controller.js'
 //Routes
+
+//login/logout routes
+
 app.get('/api/session-check', handlerFunctions.sessionCheck)
 app.post('/api/login', handlerFunctions.login)
 app.get('/api/logout', handlerFunctions.logout)
+
 app.post('/testimonial/add', handlerFunctions.addTestimonial)
+app.get('/api/testimonials', handlerFunctions.getTestimonials)
+app.get('/api/services', handlerFunctions.getServices)
 
 //Run server
 ViteExpress.listen(app, 8008, () => console.log("server running on http://localhost:8008"))
