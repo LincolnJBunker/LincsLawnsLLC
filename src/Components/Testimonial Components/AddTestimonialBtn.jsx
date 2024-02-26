@@ -1,8 +1,8 @@
 
-function AddTestimonialBtn() {
+function AddTestimonialBtn({ addTestimonial }) {
   return (
     <div className="addBtn">
-        <button>Write a Testimonial</button>
+        <button onClick={addTestimonial}>Write a Testimonial</button>
     </div>
   )
 }

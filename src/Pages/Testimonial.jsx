@@ -6,8 +6,14 @@ import { useState } from "react"
 
 function Testimonial() {
 
-  const [startingTestimonialData, setStartingTestimonialData] = useState('')
-  
+  const [testimonials, setTestimonials] = useState([]);
+  const [showForm, setShowForm] = useState(false);
+
+  const handleAddTestimonial = (testimonail) => {
+    setTestimonials([...testimonials, testimonail]);
+    setShowForm(false)
+  }
+
   const addTestimonial = () => {
     axios.post('/testimonial/add', {
       testimonialDescription: 'Enter description of testimonial here',
@@ -21,12 +27,13 @@ function Testimonial() {
 
   return (
     <>
-      <h1>Testimonials</h1>
-
-      <TestimonialCard />
-      <AddTestimonialBtn />
-
-      
+      <div className="testimonial-page">
+        <button onClick={() => setShowForm(true)}>Write a Testimonial</button>
+        {testimonials.map((testimonial, index) => (
+          <Testimonial key={index} {...testimonial} />
+        ))}
+        {showForm && <TestimonialForm onSubmit={handleAddTestimonial} />}
+      </div>
     </>
   )
 }

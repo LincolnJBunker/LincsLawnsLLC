@@ -76,7 +76,9 @@ app.use(
 
 import handlerFunctions from './controller.js'
 //Routes
+app.get('/api/session-check', handlerFunctions.sessionCheck)
 app.post('/api/login', handlerFunctions.login)
+app.get('/api/logout', handlerFunctions.logout)
 app.post('/testimonial/add', handlerFunctions.addTestimonial)
 
 //Run server
