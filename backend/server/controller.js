@@ -65,18 +65,17 @@ const handlerFunctions = {
     },
 
 
-    addTestimonial: (req, res) => {
-        const { testimonial } = req.body
-        const newTestimonial = {
-            testimonialName: '',
-            testimonialCity: '',
-            testimonialDescription: ''
-        }
-
-        res.send({
-            message: "New testimonial added!",
-            newTestimonial: newTestimonial
+    addTestimonial: async (req, res) => {
+        const { testimonialName, testimonialCity, testimonialDescription } = req.body
+        console.log(req.body)
+        const newTestimonial = await Testimonial.create({
+            testimonialName: testimonialName,
+            testimonialCity: testimonialCity,
+            testimonialDescription: testimonialDescription
         })
+
+        const allTestimonials = await Testimonial.findAll()
+        res.send(allTestimonials);
     },
 
     
@@ -91,7 +90,7 @@ const handlerFunctions = {
         res.send(allServices)
     },
 
-    
+
 }
 
 export default handlerFunctions

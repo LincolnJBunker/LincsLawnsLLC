@@ -8,7 +8,6 @@ function TestimonialCard({testimonial}) {
       <div>
         <Card>
           <Card.Body>
-            <h2>asdf</h2>
             <p>{testimonialDescription}</p>
             <h5>{testimonialName}</h5>
             <h6>{testimonialCity}</h6>
