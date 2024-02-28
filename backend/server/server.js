@@ -86,6 +86,7 @@ app.get('/api/logout', handlerFunctions.logout)
 app.post('/api/testimonial/add', handlerFunctions.addTestimonial)
 app.get('/api/testimonials', handlerFunctions.getTestimonials)
 app.get('/api/services', handlerFunctions.getServices)
+app.get('/api/appointments', handlerFunctions.getAppointments)
 
 //Run server
 ViteExpress.listen(app, 8008, () => console.log("server running on http://localhost:8008"))

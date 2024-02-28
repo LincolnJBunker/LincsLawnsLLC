@@ -1,4 +1,4 @@
-import { Customer, Testimonial, Service } from '../database/model.js'
+import { Customer, Testimonial, Service, Appointment } from '../database/model.js'
 
 //need to import testimonial data from db
 //need to push new testimonial to existing data from db
@@ -89,6 +89,14 @@ const handlerFunctions = {
         const allServices = await Service.findAll()
         res.send(allServices)
     },
+
+
+    getAppointments: async (req, res) => {
+        const allAppointments = await Appointment.findAll()
+        res.send(allAppointments)
+    },
+
+    
 
 
 }

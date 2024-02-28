@@ -13,9 +13,6 @@ import Lawncare from "./Pages/Services/Lawncare";
 import Powerwashing from "./Pages/Services/Powerwashing";
 import BBQ from "./Pages/Services/BBQ";
 import ScheduleApt from "./Pages/Schedule/ScheduleApt";
-import AptGrillCleaning from "./Pages/Schedule/AptGrillCleaning";
-import AptLawncare from "./Pages/Schedule/AptLawncare";
-import AptPowerwashing from "./Pages/Schedule/AptPowerwashing";
 
 //layouts
 import RootLayout from "./layouts/RootLayout";
@@ -36,9 +33,6 @@ const router = createBrowserRouter(
 
       <Route path="schedule" element={<Schedule />} />
       <Route path="schedule/appointment" element={<ScheduleApt />} />
-      <Route path="schedule/appointment/lawncare" element={<AptLawncare />} />
-      <Route path="schedule/appointment/powerwashing" element={<AptPowerwashing />} />
-      <Route path="schedule/appointment/grillcleaning" element={<AptGrillCleaning />} />
       <Route path="testimonial" element={<Testimonial />} />
       <Route path="faqs" element={<FAQs />} />
       <Route path="contact" element={<Contact />} />

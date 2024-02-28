@@ -95,11 +95,11 @@ Appointment.init(
         // serviceId: {
 
         // },
-        appointmentDate: {
-            type: DataTypes.INTEGER,
+        date: {
+            type: DataTypes.DATEONLY,
             allowNull: false
         },
-        appointmentTime: {
+        hour: {
             type: DataTypes.INTEGER,
             allowNull: false
         }
