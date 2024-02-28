@@ -50,7 +50,7 @@ class Service extends Model {
 
 Service.init(
     {
-        servicesId: {
+        serviceId: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,

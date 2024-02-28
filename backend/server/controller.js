@@ -96,9 +96,28 @@ const handlerFunctions = {
         res.send(allAppointments)
     },
 
-    
+    newAppointment: async (req, res) => {
+        const { date, time, customerId, serviceId } = req.body
+        console.log(req.body)
+        const newAppointment = await Appointment.create({
+            date: date,
+            time: time,
+            userId: customerId
+        })
 
+        if(serviceId) {
+            const service = await Service.findByPk(serviceId);
 
+            if (service) {
+                await newAppointment.addService(service)
+            } else {
+                console.log('service not found')
+            }
+        }
+    },
 }
+
+
+
 
 export default handlerFunctions
