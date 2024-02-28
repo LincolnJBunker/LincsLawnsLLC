@@ -97,23 +97,25 @@ const handlerFunctions = {
     },
 
     newAppointment: async (req, res) => {
-        const { date, time, customerId, serviceId } = req.body
+        const {date, hour, service, firstName, lastName, email, address, phoneNumber} = req.body
         console.log(req.body)
+        const newCustomer = await Customer.create({
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            address: address,
+            phoneNumber: phoneNumber
+        })
         const newAppointment = await Appointment.create({
             date: date,
-            time: time,
-            userId: customerId
+            hour: hour,
+            service: service,
+            customerId: newCustomer.customerId
         })
-
-        if(serviceId) {
-            const service = await Service.findByPk(serviceId);
-
-            if (service) {
-                await newAppointment.addService(service)
-            } else {
-                console.log('service not found')
-            }
-        }
+        const allAppointments = await Appointment.findAll()
+        const allCustomers = await Customer.findAll()
+        res.send(allAppointments)
+        // res.send(allCustomers)
     },
 }
 

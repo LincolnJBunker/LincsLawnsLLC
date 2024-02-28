@@ -34,6 +34,10 @@ Customer.init(
         address: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        phoneNumber: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
     },
     {
@@ -89,18 +93,16 @@ Appointment.init(
             primaryKey: true,
             autoIncrement: true
         },
-        // userId: {
-            
-        // },
-        // serviceId: {
-
-        // },
         date: {
             type: DataTypes.DATEONLY,
             allowNull: false
         },
         hour: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        service: {
+            type: DataTypes.STRING,
             allowNull: false
         }
     },
@@ -145,8 +147,8 @@ Testimonial.init(
 
 //Define Relationships
 //a user can have many appointments but an appointment can only be tied to one user --> one to many
-Customer.hasMany(Appointment, { foreignKey: 'userId' });
-Appointment.belongsTo(Customer, { foreignKey: 'userId' });
+Customer.hasMany(Appointment, { foreignKey: 'customerId' });
+Appointment.belongsTo(Customer, { foreignKey: 'customerId' });
 
 //an appointment be tied to many services and a service can have many appointments --> many to may
 Appointment.belongsToMany(Service, { through: 'AppointmentService' });

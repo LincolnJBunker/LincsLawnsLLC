@@ -3,11 +3,17 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import moment from 'moment'
 import AppointmentForm from './AppointmentForm';
+import axios from 'axios';
 
 function SchedulingCalendar() {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState(null);
   const [selectedService, setSelectedService] = useState('selectService')
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [address, setAddress] = useState('');
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -23,7 +29,22 @@ function SchedulingCalendar() {
     setSelectedService(event.target.value)
   }
 
-  const handleScheduleAppointment = () => {
+  const handleScheduleAppointment = (e) => {
+    e.preventDefault();
+    axios.post('/api/newAppointment', {
+      date: selectedDate,
+      hour: selectedTime,
+      service: selectedService,
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      phoneNumber: phoneNumber,
+      address: address
+    })
+    .then((res) => {
+
+    })
+
     console.log(`Schedule Appointment:`, {
       date: moment(selectedDate).format('MMMM, D, YYYY'),
       time: selectedTime,
@@ -101,20 +122,72 @@ function SchedulingCalendar() {
             <option value="Powerwashing">Powerwashing</option>
             <option value="GrillCleaning">Grill Cleaning</option>
           </select>
+          <div>
+          <h2>Appointment Form</h2>
+          <div className="appointment-form">
+            <label htmlFor="first-name">First Name</label>
+            <input 
+            type="text"
+            className="appointment-control"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            />
+        </div>
+
+        <div className="appointment-form">
+            <label htmlFor="last-name">Last Name</label>
+            <input 
+            type="text"
+            className="appointment-control"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            />
+        </div>
+
+        <div className="appointment-form">
+            <label htmlFor="email">Email</label>
+            <input 
+            type="email" 
+            className="appointment-control"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            />
+        </div>
+
+        <div className="appointment-form">
+            <label htmlFor="phoneNumber">Phone Number</label>
+            <input 
+            type="number" 
+            className="appointment-control"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            />
+        </div>
+
+        <div className="appointment-form">
+            <label htmlFor="address">Address</label>
+            <input 
+            type="text" 
+            className="appointment-control"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            />
+        </div>
+            </div>
           <button onClick={handleScheduleAppointment}>Schedule Appointment</button>
         </div>
       ) : null}
 
-      {selectedTime && selectedService !== 'selectService' && (
+      {/* {selectedTime && selectedService !== 'selectService' && (
         <div>
           <h2>Appointment Form</h2>
           <AppointmentForm
             date={moment(selectedDate).format('MMMM D, YYYY')}
             time={selectedTime}
             service={selectedService}
-          />
-          </div>
-      )}
+            />
+            </div>
+      )} */}
     </div>
   );
 }

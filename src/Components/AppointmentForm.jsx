@@ -18,7 +18,7 @@ function AppointmentForm() {
             address: address
         })
         .then((res) => {
-            
+
         })
     }
 
@@ -73,7 +73,6 @@ function AppointmentForm() {
             onChange={(e) => setAddress(e.target.value)}
             />
         </div>
-        <button type="submit">Confirm Appointment</button>
     </form>
   )
 }
