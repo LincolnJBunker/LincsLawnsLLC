@@ -7,6 +7,10 @@ function Schedule() {
       <h3>Schedule an Appointment</h3>
       <button onClick={() => navigate('appointment')}>Yes</button>
       <button onClick={() => navigate('/')}>No</button>
+
+      <p></p>
+
+      <h3>Reschedule or Cancel an Appointment?</h3>
     </div>
   )
 }

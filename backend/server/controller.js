@@ -1,4 +1,4 @@
-import { Customer, Testimonial, Service, Appointment } from '../database/model.js'
+import { Customer, Testimonial, Service, Appointment, Admin } from '../database/model.js'
 
 //need to import testimonial data from db
 //need to push new testimonial to existing data from db
@@ -6,51 +6,51 @@ import { Customer, Testimonial, Service, Appointment } from '../database/model.j
 
 const handlerFunctions = {
     sessionCheck: async (req, res) => {
-        if (req.session.customerId) {
+        if (req.session.adminId) {
             res.send({
-                message: 'user is still logged in',
+                message: 'admin is still logged in',
                 success: true,
-                customerId: req.session.customerId
+                adminId: req.session.adminId
             })
             return
         } else {
             res.send({
-                message: 'no user logged in',
+                message: 'no admin logged in',
                 success: false
             })
-            false
+            return
         }
     },
     
     login: async (req, res) => {
-        const { firstName, email } = req.body
+        const { adminName, adminPassword } = req.body
 
-        const customer = await Customer.findOne({
+        const admin = await Admin.findOne({
             where: {
-                firstName: firstName
+                adminName: adminName
             }
         })
-        if(!firstName){
+        if(!admin){
             res.send({
-                message: 'no firstName found',
+                message: 'no admin found',
                 success: false
             })
             return
         }
         // if we're here, then the user was found
-        if(customer.email !== email) {
+        if(admin.adminPassword !== adminPassword) {
             res.send({
-                message: 'email does not math',
+                message: 'adminPassword does not math',
                 success: false
             })
             return
         }
-        req.session.customerId = customer.customerId
+        req.session.adminId = admin.adminId
 
         res.send({
-            message: 'user logged in',
+            message: 'admin logged in',
             success: true,
-            customerId: req.session.customerId
+            adminId: req.session.adminId
         })
     },
 
@@ -58,7 +58,7 @@ const handlerFunctions = {
         req.session.destroy()
 
         res.send({
-            message: 'user logged out',
+            message: 'admin logged out',
             success: true
         })
         return
@@ -105,15 +105,19 @@ const handlerFunctions = {
             email: email,
             address: address,
             phoneNumber: phoneNumber
-        })
+        });
         const newAppointment = await Appointment.create({
             date: date,
             hour: hour,
             service: service,
             customerId: newCustomer.customerId
+        });
+
+        await newAppointment.setCustomer(newCustomer)
+
+        const allAppointments = await Appointment.findAll({
+            include: [{ model: Customer }]
         })
-        const allAppointments = await Appointment.findAll()
-        const allCustomers = await Customer.findAll()
         res.send(allAppointments)
         // res.send(allCustomers)
     },

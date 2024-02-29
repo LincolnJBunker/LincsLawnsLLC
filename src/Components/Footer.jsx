@@ -7,6 +7,7 @@ function Footer() {
             <nav>
                 <NavLink to='faqs'>FAQ's</NavLink>
                 <NavLink to='contact'>Contact</NavLink>
+                <NavLink to='adminlogin'>Admin</NavLink>
             </nav>
         </footer>
 

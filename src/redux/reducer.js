@@ -1,5 +1,5 @@
 const initialState = {
-    customerId: null,
+    adminId: null,
     otherValue: 'was good'
 };
 
@@ -8,13 +8,13 @@ const reducer = (state = initialState, action) => {
         case 'USER_AUTH':
             return {
                 ...state,
-                customerId: action.payload
+                admminId: action.payload
             };
 
         case "LOGOUT":
             return {
                 ...state,
-                customerId: null
+                adminId: null
             };
         default:
             return state;

@@ -5,13 +5,12 @@ import axios from 'axios';
 
 
 function LoginCreateAccount() {
-    const [action, setAction] = useState("Create Account")
-    const [firstName, setFirstName] = useState('');
-    const [email, setEmail] = useState('');
+    const [adminName, setAdminName] = useState('');
+    const [adminPassword, setAdminPassword] = useState('');
 
     // const [customerId, setCustomerId] = useState(null)
 
-    const customerId = useSelector((state) => state.customerId)
+    const adminId = useSelector((state) => state.adminId)
 
     const dispatch = useDispatch();
 
@@ -21,8 +20,8 @@ function LoginCreateAccount() {
         //need to create my req.body obj
 
         const bodyObj = {
-            firstName: firstName,
-            email: email
+            adminName: adminName,
+            adminPassword: adminPassword
         }
 
         //now send this data to our /login endpoint to validate
@@ -32,10 +31,10 @@ function LoginCreateAccount() {
         if (res.data.success) {
             dispatch({
                 type: 'USER_AUTH',
-                payload: res.data.customerId
+                payload: res.data.adminId
             })
-            setFirstName('')
-            setEmail('')
+            setAdminName('')
+            setAdminPassword('')
         } 
         
         alert(res.data.message)
@@ -58,7 +57,7 @@ function LoginCreateAccount() {
         if (res.data.success) {
             dispatch({
                 type: 'USER_AUTH', 
-                payload: res.data.customerId
+                payload: res.data.adminId
             })
         }
     }
@@ -69,10 +68,10 @@ function LoginCreateAccount() {
 
   return (
     <>
-    {!customerId &&
+    {!adminId &&
     <form onSubmit={handleLogin}>
-        <input type='text' value={firstName} placeholder='Name' onChange={(e) => setFirstName(e.target.value)} />
-        <input type="email" value={email} placeholder='Email' onChange={(e) => setEmail(e.target.value)}  />
+        <input type='text' value={adminName} placeholder='Admin Name' onChange={(e) => setAdminName(e.target.value)} />
+        <input type="password" value={adminPassword} placeholder='Password' onChange={(e) => setAdminPassword(e.target.value)}  />
         <button type='submit'>Submit</button>
     </form>
 
@@ -84,35 +83,3 @@ function LoginCreateAccount() {
     }
     
     export default LoginCreateAccount
-    //     <div className='container'>
-    //     <div className="header">
-    //         <div className="text">{action}</div>
-    //         <div className="underline"></div>
-    //     </div>
-    //     <div className="inputs">
-    //         {action === "Login" ? <div></div>:<div className="input">
-    //             <input type="text" placeholder='First Name'/>
-    //         </div>}
-    //         {action === "Login" ? <div></div>:<div className="input">
-    //             <input type="text" placeholder='Last Name'/>
-    //         </div>}
-    //         {action === "Login" ? <div></div>:<div className="input">
-    //             <input type="text" placeholder='Address'/>
-    //         </div>}
-    
-    //         <div className="input">
-    //             <input type="email" placeholder='Email'/>
-    //         </div>
-            
-            
-    
-    //         <div className="input">
-    //             <input type="password" placeholder='Password'/>
-    //         </div>
-    //     </div>
-    //     {action === "Create Account" ? <div></div>:<div className="forgot-password">Forgot Password? <span>Click Here</span></div>}
-    //     <div className="submit-container">
-    //       <div className={action==="Login"?"submit gray": "submit"} onClick={() => {setAction("Create Account")}}>Create Account</div>
-    //       <div className={action==="Create Account"?"submit gray": "submit"} onClick={() => {setAction("Login")}}>Login</div>
-    //     </div>
-    // </div>

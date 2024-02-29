@@ -78,7 +78,6 @@ import handlerFunctions from './controller.js'
 //Routes
 
 //login/logout routes
-
 app.get('/api/session-check', handlerFunctions.sessionCheck)
 app.post('/api/login', handlerFunctions.login)
 app.get('/api/logout', handlerFunctions.logout)

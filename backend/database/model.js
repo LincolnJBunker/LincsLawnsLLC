@@ -145,6 +145,35 @@ Testimonial.init(
     }
 )
 
+class Admin extends Model {
+    [util.inspect.custom](){
+        return this.toJSON
+    }
+}
+
+Admin.init(
+    {
+        adminId: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        adminName: {
+            type: DataTypes.STRING,
+            unique: true,
+            allowNull: false
+        },
+        adminPassword: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
+    },
+    {
+        modelName: 'admin',
+        sequelize: db,
+    }
+)
+
 //Define Relationships
 //a user can have many appointments but an appointment can only be tied to one user --> one to many
 Customer.hasMany(Appointment, { foreignKey: 'customerId' });
@@ -166,4 +195,4 @@ if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
 
 // await db.close()
 
-export { Customer, Service, Appointment, Testimonial };
+export { Customer, Service, Appointment, Testimonial, Admin };

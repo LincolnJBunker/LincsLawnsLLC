@@ -1,4 +1,4 @@
-import { Customer, Testimonial, Service, db } from './model.js';
+import { Customer, Testimonial, Service, Admin, db } from './model.js';
 import serviceData from './services.json' assert { type: 'json' };
 import lodash from 'lodash';
 import connectToDB from './db.js';
@@ -35,7 +35,8 @@ const josh = await Customer.create({
     lastName: 'Behunin',
     email: 'swaghomeslicejb@gmail.com',
     password: 'mrcoolguy',
-    address: '1234 Circle Circle'
+    address: '1234 Circle Circle',
+    phoneNumber: '8675309'
 });
 
 const aeration = await Service.create({
@@ -80,9 +81,15 @@ const testimonial3 = await Testimonial.create({
     testimonialDescription: 'For years my driveway was dirty, the powerwashing service was amazing!'
 });
 
-console.log(testimonial1)
-console.log(testimonial2)
-console.log(testimonial3)
+const adminLincoln = await Admin.create({
+    adminName: 'Lincoln',
+    adminPassword: 'test'
+})
+
+const adminKylie = await Admin.create({
+    adminName: 'Kylie',
+    adminPassword: 'test'
+})
 
 console.log('Database seeded!')
 

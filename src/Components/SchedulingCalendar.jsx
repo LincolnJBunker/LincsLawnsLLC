@@ -2,7 +2,6 @@ import { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import moment from 'moment'
-import AppointmentForm from './AppointmentForm';
 import axios from 'axios';
 
 function SchedulingCalendar() {
@@ -42,7 +41,13 @@ function SchedulingCalendar() {
       address: address
     })
     .then((res) => {
-
+      alert('Submission Recieved!')
+      setFirstName('')
+      setLastName('')
+      setEmail('')
+      setPhoneNumber('')
+      setAddress('')
+      setSelectedService('selectService')
     })
 
     console.log(`Schedule Appointment:`, {
@@ -74,7 +79,8 @@ function SchedulingCalendar() {
   return (
     <div>
       <h1>Appointment Scheduler</h1>
-      <div>
+      <div className="container"></div>
+      <div className='calendar-container'>
         <h2>Select Date</h2>
         <Calendar 
           onChange={handleDateChange} 
@@ -84,9 +90,9 @@ function SchedulingCalendar() {
       </div>
 
       {selectedDate ? (
-        <div>
+        <div className='time-slots-container'>
           <h2>Select Time</h2>
-          <div>
+          <div className='time-slots'>
             {timeSlots.map((time) => (
               <button
                 key={time}
@@ -116,6 +122,7 @@ function SchedulingCalendar() {
           <h2>Appointment Details</h2>
           <p>Date: {moment(selectedDate).format('MMMM D, YYYY')}</p>
           <p>Time: {selectedTime}</p>
+          <h4>Select desired service below?</h4>
           <select name="service" value={selectedService} onChange={handleServiceSelect}>
             <option value="selectService">Select a service</option>
             <option value="Aeration">Aeration</option>

@@ -14,7 +14,6 @@ function Header() {
                 <NavLink to="services">Services</NavLink>
                 <NavLink to="schedule">Schedule</NavLink>
                 <NavLink to="testimonial">Testimonial</NavLink>
-                <NavLink to="loginsignup">Login</NavLink>
             </nav>
       </header>
     </div>
