@@ -13,6 +13,7 @@ import Lawncare from "./Pages/Services/Lawncare";
 import Powerwashing from "./Pages/Services/Powerwashing";
 import BBQ from "./Pages/Services/BBQ";
 import ScheduleApt from "./Pages/Schedule/ScheduleApt";
+import Data from "./Pages/Data";
 
 //layouts
 import RootLayout from "./layouts/RootLayout";
@@ -37,6 +38,7 @@ const router = createBrowserRouter(
       <Route path="faqs" element={<FAQs />} />
       <Route path="contact" element={<Contact />} />
       <Route path="adminlogin" element={<LoginSignup />} />
+      <Route path="data" element={<Data />} />
 
   </Route>
 

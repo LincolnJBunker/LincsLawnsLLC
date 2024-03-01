@@ -8,7 +8,7 @@ const reducer = (state = initialState, action) => {
         case 'USER_AUTH':
             return {
                 ...state,
-                admminId: action.payload
+                adminId: action.payload
             };
 
         case "LOGOUT":

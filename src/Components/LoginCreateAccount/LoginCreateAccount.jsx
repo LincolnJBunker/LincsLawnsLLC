@@ -8,8 +8,6 @@ function LoginCreateAccount() {
     const [adminName, setAdminName] = useState('');
     const [adminPassword, setAdminPassword] = useState('');
 
-    // const [customerId, setCustomerId] = useState(null)
-
     const adminId = useSelector((state) => state.adminId)
 
     const dispatch = useDispatch();
@@ -42,7 +40,7 @@ function LoginCreateAccount() {
     }
 
     const handleLogout = async () => {
-        const res = await axios.post('/api/logout')
+        const res = await axios.get('/api/logout')
 
         if(res.data.success) {
             dispatch({
@@ -52,7 +50,7 @@ function LoginCreateAccount() {
     }
 
     const sessionCheck = async () => {
-        const res = await axios.post('/api/session-check')
+        const res = await axios.get('/api/session-check')
 
         if (res.data.success) {
             dispatch({
@@ -68,13 +66,22 @@ function LoginCreateAccount() {
 
   return (
     <>
+    <nav>
+        {adminId ?
+            <button onClick={handleLogout}>Logout</button> :
+            <button>Login</button>
+        }
+
+    </nav>
     {!adminId &&
     <form onSubmit={handleLogin}>
         <input type='text' value={adminName} placeholder='Admin Name' onChange={(e) => setAdminName(e.target.value)} />
         <input type="password" value={adminPassword} placeholder='Password' onChange={(e) => setAdminPassword(e.target.value)}  />
-        <button type='submit'>Submit</button>
+        <input type="submit" />
     </form>
-
+    }
+    {adminId &&
+        <h3>Welcome admin {adminName}</h3>
     }
     
     </>

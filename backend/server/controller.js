@@ -24,6 +24,7 @@ const handlerFunctions = {
     
     login: async (req, res) => {
         const { adminName, adminPassword } = req.body
+        console.log(req.body)
 
         const admin = await Admin.findOne({
             where: {
@@ -92,6 +93,7 @@ const handlerFunctions = {
 
 
     getAppointments: async (req, res) => {
+        console.log('alfjfasdlfkjdsa')
         const allAppointments = await Appointment.findAll()
         res.send(allAppointments)
     },
@@ -121,6 +123,20 @@ const handlerFunctions = {
         res.send(allAppointments)
         // res.send(allCustomers)
     },
+
+    getCustomers: async (req, res) => {
+        const allCustomers = await Customer.findAll()
+        res.send(allCustomers);
+    },
+
+    getCustomersAppointments: async (req, res) => {
+        const allCustomers = await Customer.findAll()
+        const allAppointments = await Appointment.findAll()
+        res.send(
+            allCustomers,
+            allAppointments
+        )
+    }
 }
 
 
