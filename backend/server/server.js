@@ -88,7 +88,7 @@ app.get('/api/services', handlerFunctions.getServices)
 app.get('/api/appointments', handlerFunctions.getAppointments)
 app.get('/api/customers', handlerFunctions.getCustomers)
 app.post('/api/newAppointment', handlerFunctions.newAppointment)
-app.get('/api/customers&appointments', handlerFunctions.getCustomersAppointments)
+app.get('/api/customers/appointments', handlerFunctions.getCustomersAppointments)
 
 //Run server
 ViteExpress.listen(app, 8008, () => console.log("server running on http://localhost:8008"))

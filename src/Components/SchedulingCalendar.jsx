@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import moment from 'moment'
@@ -13,6 +13,7 @@ function SchedulingCalendar() {
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [address, setAddress] = useState('');
+  const [bookedTimes, setBookedTimes] = useState([])
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -27,6 +28,18 @@ function SchedulingCalendar() {
   const handleServiceSelect = (event) => {
     setSelectedService(event.target.value)
   }
+
+  let getBookedTimes = async () => {
+    axios.get('/api/appointments')
+    .then((res) => {
+      console.log(res.data)
+      setBookedTimes(res.data)
+    })
+  }
+
+  useEffect(() => {
+    getBookedTimes()
+  }, [])
 
   const handleScheduleAppointment = (e) => {
     e.preventDefault();
@@ -49,18 +62,20 @@ function SchedulingCalendar() {
       setAddress('')
       setSelectedService('selectService')
     })
-
-    console.log(`Schedule Appointment:`, {
-      date: moment(selectedDate).format('MMMM, D, YYYY'),
-      time: selectedTime,
-      service: selectedService
-    });
   };
 
+  const isTimeBooked = (date, time) => {
+    const isBooked = bookedTimes.some(bookedTime => (
+      moment(bookedTime.date).isSame(moment(date), 'day') &&
+      bookedTime.hour === time
+    ))
+    return isBooked
+  }
+  
   //grey out past dates and sundays
   const greyDates = (date) => {
     return moment(date).isBefore(moment(), 'day') || date.getDay() === 0;
-  }
+  };
 
   // Dummy time slots for demonstration
   const timeSlots = [
@@ -97,7 +112,7 @@ function SchedulingCalendar() {
               <button
                 key={time}
                 onClick={() => handleTimeSelect(time)}
-                disabled={!moment(`${selectedDate.toISOString().split('T')[0]} ${time}`).isAfter(moment())}
+                disabled={!moment(`${selectedDate.toISOString().split('T')[0]} ${time}`).isAfter(moment() || isTimeBooked(selectedDate, time))}
               >
                 {time}
               </button>
@@ -109,10 +124,10 @@ function SchedulingCalendar() {
       <div className="calander-key">
         <div>
           <div className="appoitment-available"></div>
-          <span className="calendar-legend"></span>
+          <span className="calendar-legend">Appointments Available</span>
         </div>
         <div>
-          <div className="appointment-unavailable">Appointments Available</div>
+          <div className="appointment-unavailable"></div>
           <span className="calendar-legend">No Appoinments Available/Date Passed</span>
         </div>
       </div>
@@ -122,7 +137,7 @@ function SchedulingCalendar() {
           <h2>Appointment Details</h2>
           <p>Date: {moment(selectedDate).format('MMMM D, YYYY')}</p>
           <p>Time: {selectedTime}</p>
-          <h4>Select desired service below?</h4>
+          <h4>Select desired service below</h4>
           <select name="service" value={selectedService} onChange={handleServiceSelect}>
             <option value="selectService">Select a service</option>
             <option value="Aeration">Aeration</option>
@@ -184,17 +199,6 @@ function SchedulingCalendar() {
           <button onClick={handleScheduleAppointment}>Schedule Appointment</button>
         </div>
       ) : null}
-
-      {/* {selectedTime && selectedService !== 'selectService' && (
-        <div>
-          <h2>Appointment Form</h2>
-          <AppointmentForm
-            date={moment(selectedDate).format('MMMM D, YYYY')}
-            time={selectedTime}
-            service={selectedService}
-            />
-            </div>
-      )} */}
     </div>
   );
 }

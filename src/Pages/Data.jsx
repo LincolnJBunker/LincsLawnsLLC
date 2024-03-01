@@ -4,6 +4,7 @@ import AppointmentData from "../Components/DataTable/AppointmentData";
 import TableHeader from "../Components/DataTable/TableHeader";
 import axios from "axios";
 import { Table } from "react-bootstrap";
+import TableRow from "../Components/DataTable/TableRow";
 
 function Data() {
     const [appointments, setAppointments] = useState([])
@@ -22,22 +23,20 @@ function Data() {
         setCustomers(customerRes.data)
     }
 
-    let appointmentCustomerGet = async () => {
-        let appointmentCustomerRes = await axios.get('/api/customers&appointments')
-        console.log(appointmentCustomerRes)
-        setAppointmentsCustomers(appointmentCustomerRes.data)
-    }
+    // let appointmentCustomerGet = async () => {
+    //     let appointmentCustomerRes = await axios.get('/api/customers/appointments')
+    //     console.log(appointmentCustomerRes)
+    //     setAppointmentsCustomers(appointmentCustomerRes.data)
+    // }
 
     useEffect(() => {
         appointmentGet()
         customerGet()
-        appointmentCustomerGet()
+        // appointmentCustomerGet()
     }, []);
 
-    // const customerRow = customers.map((customer) => )
-
-    const allAppointments = appointments.map((appointment) => <AppointmentData appointment={appointment} key={appointment.appointmentId} />)
-    // const allCustomers = customers.map((customer) => <CustomerData customer={customer} key={customer.customerId} />)
+    // const allAppointments = appointments.map((appointment) => <AppointmentData appointment={appointment} key={appointment.appointmentId} />)
+    const allCustomers = customers.map((customer) => <TableRow customer={customer} key={customer.customerId} />)
   return (
     <>
     <div className="data">
@@ -46,7 +45,8 @@ function Data() {
                 <TableHeader />
             </thead>
             <tbody>
-                {/* put data here */}
+                <TableRow />
+                {allCustomers}
             </tbody>
         </Table>
     </div>

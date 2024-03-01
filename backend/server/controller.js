@@ -130,12 +130,18 @@ const handlerFunctions = {
     },
 
     getCustomersAppointments: async (req, res) => {
-        const allCustomers = await Customer.findAll()
-        const allAppointments = await Appointment.findAll()
-        res.send(
-            allCustomers,
-            allAppointments
-        )
+        try{
+            const allAppointments = await Appointment.findAll({
+                include: {
+                    model: Customer,
+                    as: 'appointments'
+                }
+            })
+            res.send(allAppointments)
+        } catch (error) {
+            console.log(error)
+            res.status(500).send('Internal Server Error')
+        }
     }
 }
 

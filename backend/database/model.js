@@ -176,7 +176,7 @@ Admin.init(
 
 //Define Relationships
 //a user can have many appointments but an appointment can only be tied to one user --> one to many
-Customer.hasMany(Appointment, { foreignKey: 'customerId' });
+Customer.hasMany(Appointment, { as: 'appointments' });
 Appointment.belongsTo(Customer, { foreignKey: 'customerId' });
 
 //an appointment be tied to many services and a service can have many appointments --> many to may
