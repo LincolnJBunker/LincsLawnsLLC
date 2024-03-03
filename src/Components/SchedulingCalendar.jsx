@@ -69,6 +69,7 @@ function SchedulingCalendar() {
       moment(bookedTime.date).isSame(moment(date), 'day') &&
       bookedTime.hour === time
     ))
+    console.log(isBooked)
     return isBooked
   }
   
@@ -112,7 +113,7 @@ function SchedulingCalendar() {
               <button
                 key={time}
                 onClick={() => handleTimeSelect(time)}
-                disabled={!moment(`${selectedDate.toISOString().split('T')[0]} ${time}`).isAfter(moment() || isTimeBooked(selectedDate, time))}
+                disabled={!moment(`${selectedDate.toISOString().split('T')[0]} ${time}`).isAfter(moment())}
               >
                 {time}
               </button>

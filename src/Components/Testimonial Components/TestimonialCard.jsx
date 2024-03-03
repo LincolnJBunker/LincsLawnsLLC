@@ -5,7 +5,7 @@ function TestimonialCard({testimonial}) {
   const {testimonialName, testimonialCity, testimonialDescription} = testimonial
   return (
     <div className="testimonial-card">
-      <div>
+      <div className="">
         <Card>
           <Card.Body>
             <p>{testimonialDescription}</p>

@@ -1,5 +1,9 @@
-const { User, Testimonial } = await import('./model.js');
+const { Customer, Appointment, Testimonial } = await import('./model.js');
 
-const allTestimonials = await Testimonial.findAll()
-
-console.log(allTestimonials);
+const allAppsCustomers = Appointment.findAll({
+    include: [{
+        model: Customer,
+        required: true
+    }]
+})
+console.log(allAppsCustomers)

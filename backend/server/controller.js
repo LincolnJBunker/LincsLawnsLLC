@@ -132,10 +132,10 @@ const handlerFunctions = {
     getCustomersAppointments: async (req, res) => {
         try{
             const allAppointments = await Appointment.findAll({
-                include: {
+                include: [{
                     model: Customer,
-                    as: 'appointments'
-                }
+                    required: true
+                }]
             })
             res.send(allAppointments)
         } catch (error) {
