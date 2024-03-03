@@ -112,7 +112,7 @@ const handlerFunctions = {
             date: date,
             hour: hour,
             service: service,
-            customerId: newCustomer.customerId
+            customerId: newCustomer.id
         });
 
         await newAppointment.setCustomer(newCustomer)

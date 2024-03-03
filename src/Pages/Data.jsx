@@ -11,45 +11,47 @@ function Data() {
     const [customers, setCustomers] = useState([])
     const [appointmentsCustomers, setAppointmentsCustomers] = useState([])
 
-    let appointmentGet = async () => {
-        let appointmentRes = await axios.get('/api/appointments')
-        console.log(appointmentRes)
-        setAppointments(appointmentRes.data)
-    }
-
-    let customerGet = async () => {
-        let customerRes = await axios.get('/api/customers')
-        console.log(customerRes)
-        setCustomers(customerRes.data)
-    }
-
-    // let appointmentCustomerGet = async () => {
-    //     let appointmentCustomerRes = await axios.get('/api/customers/appointments')
-    //     console.log(appointmentCustomerRes)
-    //     setAppointmentsCustomers(appointmentCustomerRes.data)
+    // let appointmentGet = async () => {
+    //     let appointmentRes = await axios.get('/api/appointments')
+    //     console.log(appointmentRes)
+    //     setAppointments(appointmentRes.data)
     // }
 
-    useEffect(() => {
-        appointmentGet()
-        customerGet()
-        // appointmentCustomerGet()
-    }, []);
+    // let customerGet = async () => {
+    //     let customerRes = await axios.get('/api/customers')
+    //     console.log(customerRes)
+    //     setCustomers(customerRes.data)
+    // }
 
+    let appointmentCustomerGet = async () => {
+        let appointmentCustomerRes = await axios.get('/api/customers/appointments')
+        console.log(appointmentCustomerRes.data)
+        setAppointmentsCustomers(appointmentCustomerRes.data)
+    }
+    
+    useEffect(() => {
+        // appointmentGet()
+        // customerGet()
+        appointmentCustomerGet()
+    }, []);
+    
     // const allAppointments = appointments.map((appointment) => <AppointmentData appointment={appointment} key={appointment.appointmentId} />)
-    const allCustomers = customers.map((customer) => <TableRow customer={customer} key={customer.customerId} />)
+    // const allCustomers = customers.map((customer) => <TableRow customer={customer} key={customer.customerId} />)
+    const allData = appointmentsCustomers.map((data) => <TableRow data={data} key={data.id} />)
+    console.log(appointmentsCustomers)
+    
   return (
     <>
-    <div className="data">
-        <Table>
+    {/* <div className="data"> */}
+        <Table responsive>
             <thead>
                 <TableHeader />
             </thead>
             <tbody>
-                <TableRow />
-                {allCustomers}
+                {allData}
             </tbody>
         </Table>
-    </div>
+    {/* </div> */}
     </>
   )
 }

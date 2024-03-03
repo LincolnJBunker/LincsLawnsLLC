@@ -22,7 +22,7 @@ useEffect(() => {
   testimonialGet()
 },[])
 
-  const allTestimonials = testimonials.map((testimonial) => <TestimonialCard testimonial={testimonial} key={testimonial.testimonialId} />)
+  const allTestimonials = testimonials.map((testimonial) => <TestimonialCard testimonial={testimonial} key={testimonial.id} />)
 
   // let testimonialAdd = async (e) => {
   //   e.preventDefault()

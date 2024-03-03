@@ -1,6 +1,5 @@
 function TableHeader() {
   return (
-    <div className="data-tableheader">
         <tr>
             <th>First Name</th>
             <th>Last Name</th>
@@ -11,7 +10,6 @@ function TableHeader() {
             <th>Appointment Time</th>
             <th>Service</th>
         </tr>
-    </div>
   )
 }
 

@@ -13,7 +13,7 @@ class Customer extends Model {
 
 Customer.init(
     {
-        customerId: {
+        id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
@@ -54,7 +54,7 @@ class Service extends Model {
 
 Service.init(
     {
-        serviceId: {
+        id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
@@ -87,7 +87,7 @@ class Appointment extends Model {
 
 Appointment.init(
     {
-        appointmentId: {
+        id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
@@ -120,7 +120,7 @@ class Testimonial extends Model {
 
 Testimonial.init(
     {
-        testimonialId: {
+        id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,

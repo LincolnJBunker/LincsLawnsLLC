@@ -1,6 +1,6 @@
 const { Customer, Appointment, Testimonial } = await import('./model.js');
 
-const allAppsCustomers = Appointment.findAll({
+const allAppsCustomers = await Appointment.findAll({
     include: [{
         model: Customer,
         required: true
