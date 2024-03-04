@@ -89,6 +89,7 @@ app.get('/api/appointments', handlerFunctions.getAppointments)
 app.get('/api/customers', handlerFunctions.getCustomers)
 app.post('/api/newAppointment', handlerFunctions.newAppointment)
 app.get('/api/customers/appointments', handlerFunctions.getCustomersAppointments)
+app.delete('/api/customers/appointments/delete/:id', handlerFunctions.deleteCustomerAppointment)
 
 //Run server
 ViteExpress.listen(app, 8008, () => console.log("server running on http://localhost:8008"))

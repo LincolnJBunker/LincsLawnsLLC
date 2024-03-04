@@ -1,6 +1,9 @@
 
-function TableRow(props) { 
-  let {data} = props
+function TableRow({data, onDelete}) { 
+
+  const handleDelete = () => {
+    onDelete(data.id)
+  }
   return (
     <tr>
         <td>{data.customer.firstName}</td>
@@ -10,7 +13,10 @@ function TableRow(props) {
         <td>{data.customer.address}</td>
         <td>{data.date}</td>
         <td>{data.hour}</td>
-        <td>{data.service}</td> 
+        <td>{data.service}</td>
+        <td>
+          <button onClick={handleDelete}>Delete</button>
+        </td>
     </tr>
   )
 }

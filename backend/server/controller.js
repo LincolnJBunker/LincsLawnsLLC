@@ -142,7 +142,31 @@ const handlerFunctions = {
             console.log(error)
             res.status(500).send('Internal Server Error')
         }
-    }
+    },
+
+    deleteCustomerAppointment: async (req, res) => {
+        const { id } = req.params
+        const customerAppointmentToDelete = await Appointment.findByPk(id, {
+            include: [{
+                model: Customer,
+                required: true
+            }]
+        })
+        
+        if(!customerAppointmentToDelete) {
+            res.send({
+                message: 'Appointment not found',
+                status: false
+            })
+        }
+
+        await customerAppointmentToDelete.destroy();
+
+        res.send({
+            message: 'Appointment deleted successfully',
+            status: true
+        });
+    },
 }
 
 
