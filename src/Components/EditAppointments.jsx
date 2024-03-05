@@ -2,8 +2,9 @@ import { useState } from "react";
 import axios from "axios";
 function EditAppointments() {
     const [email, setEmail] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('')
-
+    const [email2, setEmail2] = useState('');
+    const [appointments, setAppointments] = useState([])
+    
     const getAppointment = (e) => {
         e.preventDefault();
         //get the customers appointment based off of email and phoneNumber
@@ -11,8 +12,30 @@ function EditAppointments() {
             email
         })
         .then((res) => {
-            console.log(res.data)
+            setEmail('')
+            setEmail2(email)
+            setAppointments(res.data.appointments)
+            console.log(res.data.appointments)
         })
+    }
+
+    const deleteAppointment = async (id) => {
+        axios.delete(`/api/appointment/delete/${id}`)
+        .then((res) => {
+            console.log(res.data)
+            axios.post('/api/appointment', {
+                email: email2
+            })
+            .then((res) => {
+                // setEmail('')
+                setAppointments(res.data.appointments)
+                console.log(res.data.appointments)
+            })
+        })
+    }
+
+    const handleDelete = () => {
+        onDelete(data.id)
     }
   return (
     <>
@@ -27,10 +50,21 @@ function EditAppointments() {
         onChange={(e) => setEmail(e.target.value)}
         />
     </div>
-
-
-    {/* Will need to make a get req to whatever that users info is */}
     <button onClick={getAppointment}>Submit</button>
+    {appointments.length > 0 && (
+
+        <div>
+        <h4>Your Appointments:</h4>
+        <ul>
+            {appointments.map((appointment) => (
+                <li key={appointment.id}>
+                    Date: {appointment.date}, Hour: {appointment.hour}, Service: {appointment.service}
+                    <button onClick={()=> deleteAppointment(appointment.id)}>Delete</button>
+                </li>
+            ))}
+        </ul>
+    </div>
+    )}
     </>
     
   )

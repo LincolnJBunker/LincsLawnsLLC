@@ -223,6 +223,17 @@ const handlerFunctions = {
 
         res.send(customer)
     },
+
+    deleteAppointment: async (req, res) => {
+       const { id } = req.params
+       const appointmentToDelete = await Appointment.findByPk(id)
+       await appointmentToDelete.destroy(); 
+
+       res.send({
+        message: 'Appointment deleted successfully',
+        status: true
+    });
+    }
 }
 
 
