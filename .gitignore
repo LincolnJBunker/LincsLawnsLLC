@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 
+Maps.jsx
 
 # Editor directories and files
 .vscode/*

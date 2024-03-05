@@ -1,5 +1,6 @@
-import Me from "../Components/Me"
-import ServiceCards from "../Components/ServiceCards"
+import Me from "../Components/Me";
+import ServiceCards from "../Components/ServiceCards";
+import Maps from "../Components/About/Maps";
 
 function About() {
   return (
@@ -20,6 +21,7 @@ function About() {
       <h2>Quality of Service</h2>
 
       <h2>Service Area</h2>
+        <Maps />
     </>
   )
 }

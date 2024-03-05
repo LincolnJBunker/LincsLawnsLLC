@@ -17,6 +17,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@reduxjs/toolkit": "^2.2.1",
     "@syncfusion/ej2-react-calendars": "^24.2.8",
+    "@vis.gl/react-google-maps": "^0.7.1",
     "axios": "^1.6.7",
     "bootstrap": "^5.3.3",
     "cors": "^2.8.5",

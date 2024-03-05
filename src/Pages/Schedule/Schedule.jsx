@@ -11,6 +11,7 @@ function Schedule() {
       <p></p>
 
       <h3>Reschedule or Cancel an Appointment?</h3>
+      <button onClick={() => navigate('edit')}>View Appointments</button>
     </div>
   )
 }
