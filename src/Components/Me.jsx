@@ -10,6 +10,7 @@ function Me() {
         I love helping others, and do my best to provide my services to your exact needs. In my free time I love to ski, hike, rock climb, and run. My Fianceé Kylie and I are getting married in July, and plan to 
         continue our studies at UVU.
     </p>
+    <div className="me-carousel">
         <Carousel controls indicators>
         <Carousel.Item>
             <img className="d-block w-100" src={me_img} alt="slide 1" />
@@ -21,6 +22,7 @@ function Me() {
             <img className="d-block w-100" src={hikingMe_img} alt="slide 3" />
         </Carousel.Item>
         </Carousel>
+    </div>
     
     </>
     

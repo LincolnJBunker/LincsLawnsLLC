@@ -1,4 +1,4 @@
-import LoginCreateAccount from "../Components/LoginCreateAccount/LoginCreateAccount"
+import LoginCreateAccount from "../Components/Admin/Admin"
 
 
 function LoginSignup() {

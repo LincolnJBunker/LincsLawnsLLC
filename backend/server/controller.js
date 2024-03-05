@@ -10,7 +10,8 @@ const handlerFunctions = {
             res.send({
                 message: 'admin is still logged in',
                 success: true,
-                adminId: req.session.adminId
+                adminId: req.session.adminId,
+                adminName: req.session.adminName
             })
             return
         } else {
@@ -47,11 +48,13 @@ const handlerFunctions = {
             return
         }
         req.session.adminId = admin.adminId
+        req.session.adminName = admin.adminName
 
         res.send({
             message: 'admin logged in',
             success: true,
-            adminId: req.session.adminId
+            adminId: req.session.adminId,
+            adminName: req.session.adminName
         })
     },
 
@@ -145,7 +148,7 @@ const handlerFunctions = {
     },
 
     deleteCustomerAppointment: async (req, res) => {
-        const { id } = req.params
+        const { id } = req.params;
         const customerAppointmentToDelete = await Appointment.findByPk(id, {
             include: [{
                 model: Customer,
@@ -166,6 +169,52 @@ const handlerFunctions = {
             message: 'Appointment deleted successfully',
             status: true
         });
+    },
+
+    updateCustomerAppointment: async (req, res) => {
+        const { id } = req.params;
+        const {date, hour, service, firstName, lastName, email, address, phoneNumber} = req.body
+        const index = await Appointment.findByPk(id, {
+            include: [{
+                model: Customer,
+                required: true
+            }]
+        }).findIndex((appointment) => {
+            return appointment.id === +id
+        })
+        const appointmentToUpdate = Appointment[index];
+        appointmentToUpdate.date = date;
+        appointmentToUpdate.hour = hour;
+        appointmentToUpdate.service = service;
+        appointmentToUpdate.firstName = firstName;
+        appointmentToUpdate.lastName = lastName;
+        appointmentToUpdate.email = email;
+        appointmentToUpdate.address = address;
+        appointmentToUpdate.phoneNumber = phoneNumber;
+
+        res.send({
+            message: 'Appointment updated successfully',
+            updatedAppointment: appointmentToUpdate
+        })
+    },
+
+    getSpecificAppointment: async (req, res) => {
+        const { email } = req.body
+        const customer = await Customer.findOne({
+            where: {
+                email: email
+            },
+            include: {
+                model: Appointment,
+                as: 'appointments'
+            }
+        });
+        if (!customer) {
+            console.log('Customer not found')
+            return null
+        }
+
+        res.send(customer)
     },
 }
 

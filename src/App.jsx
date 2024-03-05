@@ -18,6 +18,7 @@ import Data from "./Pages/Data";
 //layouts
 import RootLayout from "./layouts/RootLayout";
 import ServicesLayout from "./layouts/ServicesLayout";
+import EditAppointments from "./Components/EditAppointments";
 
 
 const router = createBrowserRouter(
@@ -39,6 +40,7 @@ const router = createBrowserRouter(
       <Route path="contact" element={<Contact />} />
       <Route path="adminlogin" element={<LoginSignup />} />
       <Route path="data" element={<Data />} />
+      <Route path="schedule/edit" element={<EditAppointments />} />
 
   </Route>
 

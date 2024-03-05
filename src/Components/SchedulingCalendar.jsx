@@ -29,10 +29,11 @@ function SchedulingCalendar() {
     setSelectedService(event.target.value)
   }
 
+  //get all of the appointments that have been booked
   let getBookedTimes = async () => {
     axios.get('/api/appointments')
     .then((res) => {
-      console.log(res.data)
+      //set setBookedTimes to that data
       setBookedTimes(res.data)
     })
   }
@@ -43,6 +44,8 @@ function SchedulingCalendar() {
 
   const handleScheduleAppointment = (e) => {
     e.preventDefault();
+
+    //create an appointment & customer, this is the req.body
     axios.post('/api/newAppointment', {
       date: selectedDate,
       hour: selectedTime,
@@ -54,6 +57,7 @@ function SchedulingCalendar() {
       address: address
     })
     .then((res) => {
+      //reset the fields
       alert('Submission Recieved!')
       setFirstName('')
       setLastName('')
@@ -69,16 +73,14 @@ function SchedulingCalendar() {
       moment(bookedTime.date).isSame(moment(date), 'day') &&
       bookedTime.hour === time
     ))
-    console.log(isBooked)
     return isBooked
   }
   
-  //grey out past dates and sundays
+  //grey out past dates and sundays on the calendar
   const greyDates = (date) => {
     return moment(date).isBefore(moment(), 'day') || date.getDay() === 0;
   };
 
-  // Dummy time slots for demonstration
   const timeSlots = [
     '09:00 AM',
     '10:00 AM',
@@ -109,15 +111,20 @@ function SchedulingCalendar() {
         <div className='time-slots-container'>
           <h2>Select Time</h2>
           <div className='time-slots'>
-            {timeSlots.map((time) => (
+          {timeSlots.map((time) => {
+            const isSlotBooked = isTimeBooked(selectedDate, time);
+
+            return (
               <button
                 key={time}
                 onClick={() => handleTimeSelect(time)}
-                disabled={!moment(`${selectedDate.toISOString().split('T')[0]} ${time}`).isAfter(moment())}
+                disabled={!moment(`${selectedDate.toISOString().split('T')[0]} ${time}`).isAfter(moment()) || isSlotBooked}
+                className={isSlotBooked ? 'booked-time' : ''}
               >
                 {time}
               </button>
-            ))}
+            );
+          })}
           </div>
         </div>
       ) : null}

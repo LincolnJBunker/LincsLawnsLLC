@@ -1,7 +1,6 @@
 import { Card } from "react-bootstrap" 
 
 function TestimonialCard({testimonial}) {
-  // console.log(props)
   const {testimonialName, testimonialCity, testimonialDescription} = testimonial
   return (
     <div className="testimonial-card">

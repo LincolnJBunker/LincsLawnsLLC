@@ -1,8 +1,7 @@
-import { useNavigate } from "react-router-dom"
+
 import SchedulingCalendar from "../../Components/SchedulingCalendar";
 
 function ScheduleApt() {
-  const navigate = useNavigate();
 
   return (
     <div className="schedule-apt">

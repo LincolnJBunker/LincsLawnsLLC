@@ -77,7 +77,6 @@ app.use(
 import handlerFunctions from './controller.js'
 //Routes
 
-//login/logout routes
 app.get('/api/session-check', handlerFunctions.sessionCheck)
 app.post('/api/login', handlerFunctions.login)
 app.get('/api/logout', handlerFunctions.logout)
@@ -90,6 +89,8 @@ app.get('/api/customers', handlerFunctions.getCustomers)
 app.post('/api/newAppointment', handlerFunctions.newAppointment)
 app.get('/api/customers/appointments', handlerFunctions.getCustomersAppointments)
 app.delete('/api/customers/appointments/delete/:id', handlerFunctions.deleteCustomerAppointment)
+app.put('/api/customers/appointments/update/:id', handlerFunctions.updateCustomerAppointment)
+app.post('/api/appointment', handlerFunctions.getSpecificAppointment)
 
 //Run server
 ViteExpress.listen(app, 8008, () => console.log("server running on http://localhost:8008"))
