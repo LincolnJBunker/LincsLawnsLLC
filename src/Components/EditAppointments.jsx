@@ -2,7 +2,6 @@ import { useState } from "react";
 import axios from "axios";
 function EditAppointments() {
     const [email, setEmail] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('')
 
     const getAppointment = (e) => {
         e.preventDefault();

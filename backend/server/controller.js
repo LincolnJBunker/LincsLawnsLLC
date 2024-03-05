@@ -104,21 +104,28 @@ const handlerFunctions = {
     newAppointment: async (req, res) => {
         const {date, hour, service, firstName, lastName, email, address, phoneNumber} = req.body
         console.log(req.body)
-        const newCustomer = await Customer.create({
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            address: address,
-            phoneNumber: phoneNumber
+        let existingCustomer = await Customer.findOne({
+            where: {
+                email: email
+            }
         });
+        if(!existingCustomer) {
+            existingCustomer = await Customer.create({
+               firstName: firstName,
+               lastName: lastName,
+               email: email,
+               address: address,
+               phoneNumber: phoneNumber
+           });
+        }
         const newAppointment = await Appointment.create({
             date: date,
             hour: hour,
             service: service,
-            customerId: newCustomer.id
+            customerId: existingCustomer.id
         });
 
-        await newAppointment.setCustomer(newCustomer)
+        await newAppointment.setCustomer(existingCustomer)
 
         const allAppointments = await Appointment.findAll({
             include: [{ model: Customer }]
