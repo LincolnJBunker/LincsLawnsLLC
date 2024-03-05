@@ -16,6 +16,7 @@ function Data() {
     const deleteAppointment = async (id) => {
         axios.delete(`/api/customers/appointments/delete/${id}`)
         appointmentCustomerGet();
+        location.reload()
     }
     
     useEffect(() => {

@@ -34,12 +34,13 @@ function EditAppointments() {
         })
     }
 
-    const handleDelete = () => {
-        onDelete(data.id)
+    const updateAppointment = async (id) => {
+        axios.put(`/api/appointment/delete/${id}`)
     }
+
   return (
     <>
-    <h3>Please Insert your Email and Phone Number to edit or cancel an Appointment</h3>
+    <h3>Please insert your email to edit or cancel an appointment</h3>
     
     <div className="edit-form">
         <label htmlFor="email">Email</label>
@@ -60,6 +61,7 @@ function EditAppointments() {
                 <li key={appointment.id}>
                     Date: {appointment.date}, Hour: {appointment.hour}, Service: {appointment.service}
                     <button onClick={()=> deleteAppointment(appointment.id)}>Delete</button>
+                    <button onClick={() => updateAppointment(appointment.id)}>Edit</button>
                 </li>
             ))}
         </ul>

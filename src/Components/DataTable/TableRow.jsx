@@ -16,10 +16,13 @@ const makeNormalMode = () => {
     service: service
   }
 
-  axios.put(`/api/customers/appointments/update/${id}`, bodyObj)
+  const updateAppointment = async (id) => {
+    axios.put(`/api/customers/appointments/update/${id}`, bodyObj)
     .then((res) => {
       setEditMode(false)
     })
+
+  }
 }
 
   const handleDelete = () => {

@@ -65,6 +65,7 @@ function SchedulingCalendar() {
       setPhoneNumber('')
       setAddress('')
       setSelectedService('selectService')
+      location.reload()
     })
   };
 

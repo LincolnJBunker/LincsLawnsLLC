@@ -217,7 +217,7 @@ const handlerFunctions = {
             }
         });
         if (!customer) {
-            console.log('Customer not found')
+            alert('Customer not found')
             return null
         }
 
@@ -233,6 +233,10 @@ const handlerFunctions = {
         message: 'Appointment deleted successfully',
         status: true
     });
+    },
+
+    updateAppointment: async (req, res) => {
+        const x = 'x'
     }
 }
 

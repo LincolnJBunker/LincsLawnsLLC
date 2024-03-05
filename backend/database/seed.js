@@ -30,14 +30,14 @@ console.log('Inserting data...');
 //create db entries
 // const db = await connectToDB('postgresql:///lincllc')
 
-const josh = await Customer.create({
-    firstName: 'Josh',
-    lastName: 'Behunin',
-    email: 'swaghomeslicejb@gmail.com',
-    password: 'mrcoolguy',
-    address: '1234 Circle Circle',
-    phoneNumber: '8675309'
-});
+// const josh = await Customer.create({
+//     firstName: 'Josh',
+//     lastName: 'Behunin',
+//     email: 'swaghomeslicejb@gmail.com',
+//     password: 'mrcoolguy',
+//     address: '1234 Circle Circle',
+//     phoneNumber: '8675309'
+// });
 
 const aeration = await Service.create({
     serviceName: 'Aeration',
