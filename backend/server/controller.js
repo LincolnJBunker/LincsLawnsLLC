@@ -214,10 +214,7 @@ const handlerFunctions = {
             console.log(error)
             res.status(500).send('Internal Server Error')
         }
-        // res.status(200).send({
-        //     message: "Appointment updated",
-        //     appointment: appointment
-        // })
+
     },
 
     getSpecificAppointment: async (req, res) => {
@@ -251,8 +248,36 @@ const handlerFunctions = {
     },
 
     updateAppointment: async (req, res) => {
-        const x = 'x'
-    }
+        const {
+            date,
+            hour,
+            service, 
+            email
+        } = req.body;
+
+        const appointment = await Appointment.findByPk(req.params.id);
+
+        await appointment.update({
+            date: date ?? appointment.date,
+            hour: hour ?? appointment.hour,
+            service: service ?? appointment.service
+        });
+
+        const customer = await Customer.findOne({
+            where: {
+                email: email
+            },
+            include: {
+                model: Appointment,
+                as: 'appointments'
+            }
+        });
+
+        res.status(200).send({
+            message: "Appointment updated",
+            appointments: customer.appointments
+        })
+    },
 }
 
 

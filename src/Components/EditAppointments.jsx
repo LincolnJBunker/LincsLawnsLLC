@@ -1,9 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
+import { Table } from "react-bootstrap";
+import EditAptTableRow from "./EditAptTableRow";
 function EditAppointments() {
     const [email, setEmail] = useState('');
     const [email2, setEmail2] = useState('');
-    const [appointments, setAppointments] = useState([])
+    const [appointments, setAppointments] = useState([]);
     
     const getAppointment = (e) => {
         e.preventDefault();
@@ -35,8 +37,11 @@ function EditAppointments() {
     }
 
     const updateAppointment = async (id) => {
-        axios.put(`/api/appointment/delete/${id}`)
+        
+        axios.put(`'/api/appointment/update/${id}`)
     }
+
+    const allData = appointments.map((appointment) => <EditAptTableRow appointment={appointment} key={appointment.id} deleteAppointment={deleteAppointment} setAppointments={setAppointments} email={email2}/>)
 
   return (
     <>
@@ -56,19 +61,21 @@ function EditAppointments() {
 
         <div>
         <h4>Your Appointments:</h4>
-        <ul>
-            {appointments.map((appointment) => (
-                <li key={appointment.id}>
-                    Date: {appointment.date}, Hour: {appointment.hour}, Service: {appointment.service}
-                    <button onClick={()=> deleteAppointment(appointment.id)}>Delete</button>
-                    <button onClick={() => updateAppointment(appointment.id)}>Edit</button>
-                </li>
-            ))}
-        </ul>
+            <Table>
+                <thead>
+                    <tr>
+                        <th>Appointment Date</th>
+                        <th>Appointment Time</th>
+                        <th>Requested Service</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {allData}
+                </tbody>
+            </Table>
     </div>
     )}
     </>
-    
   )
 }
 
