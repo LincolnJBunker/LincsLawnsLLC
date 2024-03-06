@@ -1,10 +1,19 @@
 import { useState } from "react"
+import axios from 'axios';
 
-function TableRow({data, onDelete}) { 
-const [editMode, setEditMode] = useState();
+function TableRow({data, onDelete, appointment, setAppointmentsCustomers}) { 
+const [isEditing, setIsEditing] = useState(false);
+const [firstName, setFirstName] = useState(data.customer.firstName);
+const [lastName, setLastName] = useState(data.customer.lastName);
+const [phoneNumber, setPhoneNumber] = useState(data.customer.phoneNumber);
+const [email, setEmail] = useState(data.customer.email);
+const [address, setAddress] = useState(data.customer.address);
+const [date, setDate] = useState(data.date);
+const [hour, setHour] = useState(data.hour);
+const [service, setService] = useState(data.service);
+console.log(firstName)
 
-const makeEditMode = () => setEditMode(true);
-const makeNormalMode = () => {
+const handleSave = () => {
   const bodyObj = {
     firstName: firstName,
     lastName: lastName,
@@ -14,25 +23,85 @@ const makeNormalMode = () => {
     date: date,
     hour: hour,
     service: service
-  }
+  };
 
-  const updateAppointment = async (id) => {
-    axios.put(`/api/customers/appointments/update/${id}`, bodyObj)
+  axios.put(`/api/customers/appointments/update/${data.id}`, bodyObj)
     .then((res) => {
-      setEditMode(false)
+      setIsEditing(false)
+      setAppointmentsCustomers(res.data)
     })
-
-  }
 }
 
   const handleDelete = () => {
     onDelete(data.id)
   }
 
-  const handleEdit = () => {
-    
-  }
-  return (
+  return isEditing ? (
+    <tr>
+      <td>
+        <input 
+        type="text" 
+        value={firstName}
+        onChange={(e) => setFirstName(e.target.value)}
+        />
+      </td>
+      <td>
+        <input 
+        type="text" 
+        value={lastName}
+        onChange={(e) => setLastName(e.target.value)}
+        />
+      </td>
+      <td>
+        <input
+        type="number" 
+        value={phoneNumber}
+        onChange={(e) => setPhoneNumber(e.target.value)}
+        />
+      </td>
+      <td>
+        <input 
+        type="email" 
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        />
+      </td>
+      <td>
+        <input 
+        type="text" 
+        value={address}
+        onChange={(e) => setAddress(e.target.value)}
+        />
+      </td>
+      <td>
+        <input 
+        type="text" 
+        value={date}
+        onChange={(e) => setDate(e.target.value)}
+        />
+      </td>
+      <td>
+        <input 
+        type="text" 
+        value={hour}
+        onChange={(e) => setHour(e.target.value)}
+        />
+      </td>
+      <td>
+        <select name="service" value={service} onChange={(e) => setService(e.target.value)}>
+            <option value="selectService">Select a service</option>
+            <option value="Aeration">Aeration</option>
+            <option value="Powerwashing">Powerwashing</option>
+            <option value="GrillCleaning">Grill Cleaning</option>
+        </select>
+      </td>
+      <td>
+        <button onClick={handleSave}>
+          Save
+        </button>
+      </td>
+    </tr>
+  ) : (
     <tr>
         <td>{data.customer.firstName}</td>
         <td>{data.customer.lastName}</td>
@@ -46,7 +115,7 @@ const makeNormalMode = () => {
           <button onClick={handleDelete}>Delete</button>
         </td>
         <td>
-          <button>Edit</button>
+          <button onClick={() => setIsEditing(true)}>Edit</button>
         </td>
     </tr>
   )

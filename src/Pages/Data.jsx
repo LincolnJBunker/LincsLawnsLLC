@@ -23,7 +23,7 @@ function Data() {
         appointmentCustomerGet()
     }, []);
     
-    const allData = appointmentsCustomers.map((data) => <TableRow data={data} key={data.id} onDelete={deleteAppointment} />)
+    const allData = appointmentsCustomers.map((data) => <TableRow data={data} key={data.id} onDelete={deleteAppointment} setAppointmentsCustomers={setAppointmentsCustomers} />)
     console.log(appointmentsCustomers)
     
   return (

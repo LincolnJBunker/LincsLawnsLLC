@@ -179,30 +179,45 @@ const handlerFunctions = {
     },
 
     updateCustomerAppointment: async (req, res) => {
-        const { id } = req.params;
-        const {date, hour, service, firstName, lastName, email, address, phoneNumber} = req.body
-        const index = await Appointment.findByPk(id, {
-            include: [{
-                model: Customer,
-                required: true
-            }]
-        }).findIndex((appointment) => {
-            return appointment.id === +id
-        })
-        const appointmentToUpdate = Appointment[index];
-        appointmentToUpdate.date = date;
-        appointmentToUpdate.hour = hour;
-        appointmentToUpdate.service = service;
-        appointmentToUpdate.firstName = firstName;
-        appointmentToUpdate.lastName = lastName;
-        appointmentToUpdate.email = email;
-        appointmentToUpdate.address = address;
-        appointmentToUpdate.phoneNumber = phoneNumber;
+        const {
+            firstName,
+            lastName,
+            phoneNumber,
+            email,
+            address,
+            date,
+            hour,
+            service
+        } = req.body;
+        
+        const appointment = await Appointment.findByPk(req.params.id);
 
-        res.send({
-            message: 'Appointment updated successfully',
-            updatedAppointment: appointmentToUpdate
-        })
+        await appointment.update({
+            firstName: firstName ?? appointment.firstName,
+            lastName: lastName ?? appointment.lastName,
+            phoneNumber: phoneNumber ?? appointment.phoneNumber,
+            email: email ?? appointment.email,
+            address: address ?? appointment.address,
+            date: date ?? appointment.date,
+            hour: hour ?? appointment.hour,
+            service: service ?? appointment.service
+        });
+        try{
+            const allAppointments = await Appointment.findAll({
+                include: [{
+                    model: Customer,
+                    required: true
+                }]
+            })
+            res.send(allAppointments)
+        } catch (error) {
+            console.log(error)
+            res.status(500).send('Internal Server Error')
+        }
+        // res.status(200).send({
+        //     message: "Appointment updated",
+        //     appointment: appointment
+        // })
     },
 
     getSpecificAppointment: async (req, res) => {
