@@ -35,7 +35,7 @@ function EditAptTableRow({ appointment, deleteAppointment, setAppointments, emai
             <td>
                 <select name="times" value={hour} onChange={(e) => setHour(e.target.value)}>
                     <option value="selectTime">Select a Time</option>
-                    <option value="9:00">9:00 AM</option>
+                    <option value="9:00 AM">9:00 AM</option>
                     <option value="10:00">10:00 AM</option>
                     <option value="11:00">11:00 AM</option>
                     <option value="12:00">12:00 PM</option>

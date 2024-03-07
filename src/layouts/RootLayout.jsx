@@ -1,13 +1,14 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function RootLayout() {
-  const adminId = useSelector((state) => state.adminId)
+  const adminId = useSelector((state) => state.adminId);
+  const navigate = useNavigate();
   return (
     <div className="root-layout">
       <header>
             <nav>
-                <h1>Alpine Twin Peak Maintenance</h1>
+            <h1 className='home-nav' onClick={() => navigate(`/`)}>Alpine Twin Peak Maintenance</h1>
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="about">About</NavLink>
                 <NavLink to="services">Services</NavLink>

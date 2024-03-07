@@ -1,5 +1,4 @@
 import { Customer, Testimonial, Service, Admin, db } from './model.js';
-import serviceData from './services.json' assert { type: 'json' };
 import lodash from 'lodash';
 import connectToDB from './db.js';
 

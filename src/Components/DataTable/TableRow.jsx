@@ -75,7 +75,7 @@ const handleSave = () => {
       </td>
       <td>
         <input 
-        type="text" 
+        type="date" 
         value={date}
         onChange={(e) => setDate(e.target.value)}
         />
