@@ -6,17 +6,18 @@ import {
     Pin,
     InfoWindow,
 } from '@vis.gl/react-google-maps';
+import mapsAPIKey from '../../../enviornmentVariables';
 
 function Maps() {
-    const position = { lat: 53.54, lng: 10}
+    const position = { lat: 111.89, lng: 40.76}
     const [open, setOpen] = useState(false)
   return (
-    <APIProvider apiKey=''>
+    <APIProvider apiKey={mapsAPIKey}>
         <div style={ {height: "100vh" ,}}>
             <Map 
                 zoom={9} 
                 center={position} 
-                mapId= "" 
+                mapId= 'b695d0d3d3392956'
             >
                 <AdvancedMarker position={position}>
 

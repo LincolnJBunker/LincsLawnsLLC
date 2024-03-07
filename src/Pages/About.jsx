@@ -1,6 +1,7 @@
 import Me from "../Components/Me";
 import ServiceCards from "../Components/ServiceCards";
 import Maps from "../Components/About/Maps";
+import Footer from "../Components/Footer";
 
 function About() {
   return (

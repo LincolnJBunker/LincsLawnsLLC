@@ -14,17 +14,19 @@ import Powerwashing from "./Pages/Services/Powerwashing";
 import BBQ from "./Pages/Services/BBQ";
 import ScheduleApt from "./Pages/Schedule/ScheduleApt";
 import Data from "./Pages/Data";
+import EditAppointments from "./Components/EditAppointments";
 
 //layouts
 import RootLayout from "./layouts/RootLayout";
 import ServicesLayout from "./layouts/ServicesLayout";
-import EditAppointments from "./Components/EditAppointments";
+
+import Footer from "./Components/Footer";
 
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Home />}>
-      {/* <Route index element={<Home />} /> */}
+    <Route path="/" element={<RootLayout />}>
+      <Route index element={<Home />} />
       <Route path="about" element={<About />} />
 
       <Route path="services" element={<ServicesLayout />} >
