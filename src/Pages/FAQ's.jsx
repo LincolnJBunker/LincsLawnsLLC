@@ -1,4 +1,5 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 function FAQs() {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ function FAQs() {
       <p>Answer</p>
 
       <p>Have another question? Click here to write a message</p>
-      <button onClick={() => navigate(`/contact`)}>Send Message</button>
+      <Button className="button" onClick={() => navigate(`/contact`)}>Send Message</Button>
 
     </>
   )

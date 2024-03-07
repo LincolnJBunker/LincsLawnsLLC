@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import { Table } from "react-bootstrap";
 import EditAptTableRow from "./EditAptTableRow";
+import { Button } from "react-bootstrap";
+
 function EditAppointments() {
     const [email, setEmail] = useState('');
     const [email2, setEmail2] = useState('');
@@ -56,7 +58,7 @@ function EditAppointments() {
         onChange={(e) => setEmail(e.target.value)}
         />
     </div>
-    <button onClick={getAppointment}>Submit</button>
+    <Button className="button" onClick={getAppointment}>Submit</Button>
     {appointments.length > 0 && (
 
         <div>

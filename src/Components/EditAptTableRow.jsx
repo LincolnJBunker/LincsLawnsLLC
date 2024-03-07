@@ -56,7 +56,7 @@ function EditAptTableRow({ appointment, deleteAppointment, setAppointments, emai
             </select>
             </td>
             <td>
-                <Button onClick={handleSave}>
+                <Button className="button" onClick={handleSave}>
                     Save
                 </Button>
             </td>
@@ -67,10 +67,10 @@ function EditAptTableRow({ appointment, deleteAppointment, setAppointments, emai
         <td>{appointment.hour}</td>
         <td>{appointment.service}</td>
         <td>
-            <Button onClick={()=> deleteAppointment(appointment.id)}>Delete</Button>
+            <Button className="button" onClick={()=> deleteAppointment(appointment.id)}>Delete</Button>
         </td>
         <td>
-            <Button onClick={() => setIsEditing(true)}>Edit</Button>
+            <Button className="button" onClick={() => setIsEditing(true)}>Edit</Button>
         </td>
     </tr>
   )

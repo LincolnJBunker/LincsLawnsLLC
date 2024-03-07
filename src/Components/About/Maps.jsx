@@ -9,13 +9,13 @@ import {
 import mapsAPIKey from '../../../enviornmentVariables';
 
 function Maps() {
-    const position = { lat: 111.89, lng: 40.76}
+    const position = { lat: 40.75, lng: -111.84}
     const [open, setOpen] = useState(false)
   return (
     <APIProvider apiKey={mapsAPIKey}>
         <div style={ {height: "100vh" ,}}>
             <Map 
-                zoom={9} 
+                zoom={7.2} 
                 center={position} 
                 mapId= 'b695d0d3d3392956'
             >

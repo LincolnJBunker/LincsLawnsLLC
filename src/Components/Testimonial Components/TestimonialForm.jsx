@@ -1,4 +1,4 @@
-
+import { Button } from "react-bootstrap";
 import { useState } from "react"
 import axios from "axios";
 
@@ -55,7 +55,7 @@ function TestimonialForm({ setTestimonials }) {
         onChange={(e) => setCity(e.target.value)}
         />
       </div>
-      <button type="submit">Submit</button>
+      <Button className='button' type="submit">Submit</Button>
     </form>
   )
 }

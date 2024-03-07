@@ -1,5 +1,6 @@
 import { useState } from "react"
 import axios from 'axios';
+import { Button } from "react-bootstrap";
 
 function TableRow({data, onDelete, appointment, setAppointmentsCustomers}) { 
 const [isEditing, setIsEditing] = useState(false);
@@ -104,9 +105,9 @@ const handleSave = () => {
         </select>
       </td>
       <td>
-        <button onClick={handleSave}>
+        <Button className="button" onClick={handleSave}>
           Save
-        </button>
+        </Button>
       </td>
     </tr>
   ) : (
@@ -120,10 +121,10 @@ const handleSave = () => {
         <td>{data.hour}</td>
         <td>{data.service}</td>
         <td>
-          <button onClick={handleDelete}>Delete</button>
+          <Button className="button" onClick={handleDelete}>Delete</Button>
         </td>
         <td>
-          <button onClick={() => setIsEditing(true)}>Edit</button>
+          <Button className="button" onClick={() => setIsEditing(true)}>Edit</Button>
         </td>
     </tr>
   )

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { Button } from "react-bootstrap";
 
 const ContactForm = () => {
     
@@ -47,7 +48,7 @@ const ContactForm = () => {
                     <label htmlFor="message">Message</label>
                     <textarea className="form-control" rows="10" value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <Button className="button" type="submit">Submit</Button>
             </form>
           )
     }

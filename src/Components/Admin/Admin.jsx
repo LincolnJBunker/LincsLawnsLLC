@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+import { Button } from 'react-bootstrap';
 
 
 function LoginCreateAccount() {
@@ -74,16 +75,16 @@ function LoginCreateAccount() {
         <>
     <nav>
         {adminId ?
-            <button onClick={handleLogout}>Logout</button> :
-            <button>Login</button>
+            <Button className="button" onClick={handleLogout}>Logout</Button> :
+            <Button className="button">Login</Button>
         }
 
     </nav>
     {!adminId &&
-    <form onSubmit={handleLogin}>
+    <form>
         <input type='text' value={adminName} placeholder='Admin Name' onChange={(e) => setAdminName(e.target.value)} />
         <input type="password" value={adminPassword} placeholder='Password' onChange={(e) => setAdminPassword(e.target.value)}  />
-        <input type="submit" />
+        <Button onClick={handleLogin} className="button">Submit</Button>
     </form>
     }
     {adminId &&
