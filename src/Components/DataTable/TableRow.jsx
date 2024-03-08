@@ -84,16 +84,16 @@ const handleSave = () => {
       <td>
         <select name="times" value={hour} onChange={(e) => setHour(e.target.value)}>
             <option value="selectTime">Select a Time</option>
-            <option value="9:00">9:00 AM</option>
-            <option value="10:00">10:00 AM</option>
-            <option value="11:00">11:00 AM</option>
-            <option value="12:00">12:00 PM</option>
-            <option value="1:00">01:00 PM</option>
-            <option value="2:00">02:00 PM</option>
-            <option value="3:00">03:00 PM</option>
-            <option value="4:00">04:00 PM</option>
-            <option value="5:00">05:00 PM</option>
-            <option value="6:00">06:00 PM</option>
+            <option value="9:00 AM">9:00 AM</option>
+            <option value="10:00 AM">10:00 AM</option>
+            <option value="11:00 AM">11:00 AM</option>
+            <option value="12:00 PM">12:00 PM</option>
+            <option value="1:00 PM">01:00 PM</option>
+            <option value="2:00 PM">02:00 PM</option>
+            <option value="3:00 PM">03:00 PM</option>
+            <option value="4:00 PM">04:00 PM</option>
+            <option value="5:00 PM">05:00 PM</option>
+            <option value="6:00 PM">06:00 PM</option>
           </select>
       </td>
       <td>
