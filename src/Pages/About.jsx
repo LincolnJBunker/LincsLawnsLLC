@@ -2,6 +2,7 @@ import Me from "../Components/Me";
 import ServiceCards from "../Components/ServiceCards";
 import Maps from "../Components/About/Maps";
 import Footer from "../Components/Footer";
+import CityCards from "../Components/CityCards";
 
 function About() {
   return (
@@ -22,6 +23,7 @@ function About() {
       <h2>Quality of Service</h2>
 
       <h2>Service Area</h2>
+        <CityCards />
         <Maps />
     </>
   )
