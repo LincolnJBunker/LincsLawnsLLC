@@ -1,6 +1,6 @@
 import Me from "../Components/Me";
 import ServiceCards from "../Components/ServiceCards";
-import Maps from "../Components/About/Maps";
+import Map from "../Components/About/Maps";
 import Footer from "../Components/Footer";
 import CityCards from "../Components/CityCards";
 
@@ -27,7 +27,7 @@ function About() {
         <CityCards />
         <p/>
       <p>Check out popular services offered in each location by clicking on the markers below!</p>
-        <Maps />
+        <Map />
     </>
   )
 }
