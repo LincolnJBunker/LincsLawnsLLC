@@ -8,7 +8,7 @@ function CityCards() {
   return (
     <div className="city-cards">
         <div>
-            <Card>
+            <Card className="about-card">
                 <Card.Img variant="top" src={slc_img}/>
                 <Card.Body>
                     <Card.Title>Salt Lake County</Card.Title>
@@ -17,7 +17,7 @@ function CityCards() {
         </div>
 
         <div>
-            <Card>
+            <Card className="about-card">
                 <Card.Img variant="top" src={utahcounty_img}/>
                 <Card.Body>
                     <Card.Title>Utah County</Card.Title>
@@ -26,7 +26,7 @@ function CityCards() {
         </div>
 
         <div>
-            <Card>
+            <Card className="about-card">
                 <Card.Img variant="top" src={parkcity_img}/>
                 <Card.Body>
                     <Card.Title>Park City</Card.Title>
@@ -35,7 +35,7 @@ function CityCards() {
         </div>
         
         <div>
-            <Card>
+            <Card className="about-card">
                 <Card.Img variant="top" src={moab_img} />
                 <Card.Body>
                     <Card.Title>Moab</Card.Title>

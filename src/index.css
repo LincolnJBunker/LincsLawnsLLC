@@ -4,9 +4,10 @@
 } */
 
 a {
-  font-weight: 500;
-  color: #646cff;
+  font-weight: 550;
+  color: #233D4D;
   text-decoration: inherit;
+  font-size: large;
 }
 a:hover {
   color: #535bf2;
@@ -31,7 +32,7 @@ header nav {
 }
 header nav h1 {
   margin-right: auto;
-  border-bottom: 3px solid var(--primary);
+  border-bottom: 3px solid #a44a3f;
 }
 header nav a{
   text-decoration: none;
@@ -63,7 +64,7 @@ header nav a.active {
 
 .hello{
   display: flex;
-  background-color: bisque;
+  /* background-color: bisque; */
   align-content: center;
   justify-content: center;
 }
@@ -72,6 +73,12 @@ header nav a.active {
   align-items: center;
   margin: 10px;
   width: 100%;
+}
+
+.about-card{
+  background-color: #DCE2AA;
+  border: solid 4px #a44a3f;
+  padding: 6px;
 }
 
 .testimonial-card {
@@ -87,11 +94,27 @@ header nav a.active {
   width: 100%;
 }
 
-.carousel{
-  width: 30%; /* Yeap you can change the width and height*/
-  height: 30%;
-  align-content: center;
-  justify-content: center;
+.me-carousel{
+  flex: 1;
+  align-self: center;
+  /* margin-right: 100px; */
+  border: solid 4px #a44a3f;
+}
+
+.me-container {
+  display: flex;
+  width: 90%;
+  height: 90%;
+  margin: auto;
+}
+
+.text-container {
+  flex: 1;
+  /* background-color: #DCE2AA; */
+  font-size: 2.5vw;
+  padding-left: 20%;
+  border: solid 4px #a44a3f;
+  padding: 6px;
 }
 
 .home-nav {
@@ -102,11 +125,6 @@ header nav a.active {
   background-color: #ccc;
   color: #666;
   cursor: not-allowed;
-}
-
-.me-carousel {
-  align-content: center;
-  justify-content: center;
 }
 
 .nav-links-container {
@@ -140,6 +158,42 @@ header nav a.active {
   width: 100%;
 }
 
+.company-overview {
+  font-size: x-large;
+}
+
+.home-welcome {
+  text-align: center;
+}
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.mission-and-values {
+  font-size: x-large;
+  border: solid 4px #a44a3f;
+  padding: 6px;
+}
+
+.service-area {
+  font-size: x-large;
+}
+
+.map-info {
+  font-size: x-large;
+  border: solid 4px #a44a3f;
+  padding: 6px;
+  display: block;
+  text-align: center;
+}
+
+.google-map {
+  border: solid 4px #a44a3f;
+}
 /* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

@@ -12,7 +12,7 @@ function ServiceCards() {
     <>
     <div className="hello">
         <div>
-            <Card>
+            <Card className="about-card">
                 <Card.Img variant="top" src={lawn_img} />
                 <Card.Body>
                     <Card.Title>Lawn Care</Card.Title>
@@ -25,7 +25,7 @@ function ServiceCards() {
         </div>
 
         <div>
-            <Card>
+            <Card className="about-card">
                 <Card.Img variant="top" src={powerwasher_img} />
                 <Card.Body>
                     <Card.Title>Powerwashing</Card.Title>
@@ -38,7 +38,7 @@ function ServiceCards() {
         </div>
 
         <div>
-            <Card>
+            <Card className="about-card">
                 <Card.Img variant="top" src={bbq_img} />
                 <Card.Body>
                     <Card.Title>Grill Cleaning</Card.Title>

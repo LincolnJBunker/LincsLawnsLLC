@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 function BBQ() {
+  const navigate = useNavigate();
   return (
     <div className="bbq">
     

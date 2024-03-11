@@ -42,7 +42,7 @@ function Maps() {
 
   return (
     <APIProvider apiKey={mapsAPIKey}>
-        <div style={ {height: "100vh" ,}}>
+        <div className='google-map'style={ {height: "100vh" ,}}>
             <Map 
                 zoom={7.2} 
                 center={slcMarker} 

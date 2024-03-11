@@ -2,13 +2,14 @@ import Footer from "../Components/Footer"
 import Header from "../Components/Header"
 import { Outlet, useNavigate } from "react-router-dom"
 import { Button } from "react-bootstrap";
+import logo_png from '../assets/logo.png'
 
 function Home() {
   const navigate = useNavigate();
   return (
     <div className="Home">
-      <h2>Welcome</h2>
-
+      <h2 className="home-welcome">Welcome</h2>
+      <img className="logo" src={logo_png} alt="company logo" />
       <h3>Who we are and what we do</h3>
       <p>Discover the beauty of pristine lawns, spotless driveways, and gleaming grills with Alpine Twin Peak Maintenance. 
         Proudly serving the Salt Lake City, Utah community, we specialize in lawn aeration, driveway pressure washing, and grill cleaning. 

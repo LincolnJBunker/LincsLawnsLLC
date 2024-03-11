@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 function Powerwashing() {
+  const navigate = useNavigate();
   return (
     <div className="powerwashing">
     Display Pictures of pretty driveways here 
