@@ -10,10 +10,10 @@ function BBQ() {
     <p></p>
 
     <p>Click here to scheduel an appointment</p>
-    <Button onClick={() => navigate('/schedule/appointment')}>Here</Button>
+    <Button className="button" onClick={() => navigate('/schedule/appointment')}>Here</Button>
 
     <p>Have more questions? Check out FAQ's below!</p>
-    <Button onClick={() => navigate('/faqs')}>FAQ's</Button>
+    <Button className="button" onClick={() => navigate('/faqs')}>FAQ's</Button>
 
     </div>
   )

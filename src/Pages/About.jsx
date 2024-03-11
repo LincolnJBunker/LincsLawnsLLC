@@ -23,7 +23,10 @@ function About() {
       <h2>Quality of Service</h2>
 
       <h2>Service Area</h2>
+      <p>We service to many cities and counties all across the State of Utah</p>
         <CityCards />
+        <p/>
+      <p>Check out popular services offered in each location by clicking on the markers below!</p>
         <Maps />
     </>
   )

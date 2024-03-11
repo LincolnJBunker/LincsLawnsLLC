@@ -10,6 +10,15 @@ const ContactForm = () => {
 
     function handleSubmit(e) {
         e.preventDefault();
+        if (!name || !email || !message) {
+            alert('Please fill out all of the fields');
+            return;
+        };
+        if(!email.includes('@')) {
+            alert('Please enter a vaild email');
+            return;
+        };
+        
         axios.post('/send', {
             name: name,
             email: email,

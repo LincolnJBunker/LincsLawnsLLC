@@ -10,6 +10,7 @@ import {
 import mapsAPIKey from '../../../enviornmentVariables';
 
 function Maps() {
+    const [path, setPath] = useState([]);
     const slcMarker = { lat: 40.75, lng: -111.84};
     const provoMarker = { lat: 40.26, lng: -111.69};
     const pcMarker = { lat: 40.64, lng: -111.44};
@@ -19,7 +20,25 @@ function Maps() {
     const [parkCity, setParkCity] = useState(false);
     const [moab, setMoab] = useState(false)
 
-    const map = useMap();
+    const MapComponent = useMap();
+
+    const handleMapClick = (e) => {
+        let coords = {
+            lat: e.latLng.lat(),
+            lng: e.latLng.lng()
+        }
+        setPath([...path, coords])
+    }
+
+    const handleMapDragStart = () => {
+        console.log('Map drag start');
+        const newPosition = MapComponent.getCenter()
+        MapComponent.panTo(newPosition)
+    };
+
+    const handleMapDragEnd = () => {
+        console.log('Map drag end');
+    };
 
   return (
     <APIProvider apiKey={mapsAPIKey}>
@@ -28,6 +47,9 @@ function Maps() {
                 zoom={7.2} 
                 center={slcMarker} 
                 mapId= 'b695d0d3d3392956'
+                onClick={handleMapClick}
+                onDragStart={handleMapDragStart}
+                onDragEnd={handleMapDragEnd} 
             >
                 <AdvancedMarker position={slcMarker} onClick={() => setSlc(true)}>
                     <Pin/>
@@ -63,7 +85,7 @@ function Maps() {
                 </AdvancedMarker>
                 {parkCity && (
                     <InfoWindow position={pcMarker} onCloseClick={() => setParkCity(false)}>
-                        <h4>Park City/</h4>
+                        <h4>Park City</h4>
                         <p>Popular Services in the Area:</p>
                         <ul>
                             <li>Grill Cleaning</li>

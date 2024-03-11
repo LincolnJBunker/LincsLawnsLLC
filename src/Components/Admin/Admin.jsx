@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
-import { Button } from 'react-bootstrap';
+import { Button, Alert } from 'react-bootstrap';
 
 
 function LoginCreateAccount() {
     const [adminName, setAdminName] = useState('');
     const [adminPassword, setAdminPassword] = useState('');
+    const [show, setShow] = useState(true);
+    const [alertMessage, setAlertMessage] = useState('');
     
     const adminId = useSelector((state) => state.adminId)
     const name = useSelector((state) => state.adminName)
@@ -40,7 +42,8 @@ function LoginCreateAccount() {
             setAdminName('')
             setAdminPassword('')
         } 
-        
+        // setAlertMessage(res.data.message)
+        // setShow(true)
         alert(res.data.message)
         
     }
@@ -73,10 +76,15 @@ function LoginCreateAccount() {
     
     return (
         <>
+        {/* {show && (
+            <Alert variant='success' onClose={() => setShow(false)} dismissible>
+                wassup
+            </Alert>
+        )} */}
     <nav>
         {adminId ?
             <Button className="button" onClick={handleLogout}>Logout</Button> :
-            <Button className="button">Login</Button>
+            <Button className="button" onClick={() => setShow(true)}>Login</Button>
         }
 
     </nav>

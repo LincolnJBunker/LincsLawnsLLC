@@ -11,11 +11,16 @@ function EditAppointments() {
     
     const getAppointment = (e) => {
         e.preventDefault();
+        if(!email) {
+            alert('Please insert your email')
+            return
+        }
         //get the customers appointment based off of email and phoneNumber
         axios.post('/api/appointment', {
             email
         })
         .then((res) => {
+            console.log(res.data)
             setEmail('')
             setEmail2(email)
             setAppointments(res.data.appointments)

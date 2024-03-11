@@ -9,6 +9,10 @@ function TestimonialForm({ setTestimonials }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!name || !city || !description) {
+      alert('Please fill out all of the fields.')
+      return;
+    };
     axios.post('/api/testimonial/add', {
       testimonialName: name,
       testimonialCity: city,

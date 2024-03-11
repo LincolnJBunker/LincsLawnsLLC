@@ -1,7 +1,7 @@
-:root {
+/* :root {
   --primary: #bc4123;
   --secondary: #2b3452;
-}
+} */
 
 a {
   font-weight: 500;
@@ -18,7 +18,7 @@ body {
   display: flex;
   padding: 20px;
   font-family:'Hind Siliguir' sans-serif;
-  background: #f0ead2;
+  background: #e6ccb2;
 }
 
 /* navbar */

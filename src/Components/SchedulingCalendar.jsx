@@ -7,7 +7,7 @@ import axios from 'axios';
 function SchedulingCalendar() {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState(null);
-  const [selectedService, setSelectedService] = useState('selectService')
+  const [selectedService, setSelectedService] = useState('Select a service')
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -44,6 +44,23 @@ function SchedulingCalendar() {
 
   const handleScheduleAppointment = (e) => {
     e.preventDefault();
+    //check for errors
+    if(selectedService === "Select a service") {
+      alert('Please select a service')
+      return
+    }
+    if(!firstName || !lastName || !email || !phoneNumber || !address) {
+      alert('Please fill out all of the fields.')
+      return
+    };
+    if (phoneNumber < 10) {
+      alert('Please enter a valid phone number')
+      return
+    }
+    if (!email.includes('@')) {
+      alert('Please enter a valid email')
+      return;
+    }
 
     //create an appointment & customer, this is the req.body
     axios.post('/api/newAppointment', {
