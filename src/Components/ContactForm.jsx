@@ -42,23 +42,27 @@ const ContactForm = () => {
     }
 
         return (
-            <form id="contact-form" name="contact-form" onSubmit={handleSubmit} method="POST">
-                <div className="form-group">
-                    <label htmlFor="name">Name</label>
-                    <input type="text" className="form-control" value={name} onChange={(e) => setName(e.target.value)} />
-                </div>
-        
-                <div className="form-group">
-                    <label htmlFor="exampleInputEmail">Email</label>
-                    <input type="email" className="form-control" aria-describedby="emailHelp" value={email} onChange={(e) => setEmail(e.target.value)} />
-                </div>
-        
-                <div className="form-group">
-                    <label htmlFor="message">Message</label>
-                    <textarea className="form-control" rows="10" value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
-                </div>
-                <Button className="button" type="submit">Submit</Button>
-            </form>
+            <div className="contact-form">
+                <form name="contact-form" onSubmit={handleSubmit} method="POST">
+                    <div className="form-group">
+                        <label htmlFor="name">Name</label>
+                        <input type="text" className="form-control" value={name} onChange={(e) => setName(e.target.value)} />
+                    </div>
+            
+                    <div className="form-group">
+                        <label htmlFor="exampleInputEmail">Email</label>
+                        <input type="email" className="form-control" aria-describedby="emailHelp" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    </div>
+            
+                    <div className="form-group">
+                        <label htmlFor="message">Message</label>
+                        <textarea className="form-control" rows="10" value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
+                    </div>
+                    <div className="text-center">
+                        <Button className="button" type="submit">Submit</Button>
+                    </div>
+                </form>
+            </div>
           )
     }
 

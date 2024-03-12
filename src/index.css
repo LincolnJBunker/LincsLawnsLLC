@@ -19,7 +19,7 @@ body {
   display: flex;
   padding: 20px;
   font-family:'Hind Siliguir' sans-serif;
-  background: #e6ccb2;
+  background: #dad7cd;
 }
 
 /* navbar */
@@ -76,7 +76,7 @@ header nav a.active {
 }
 
 .about-card{
-  background-color: #DCE2AA;
+  background-color: #c2c5aa;
   border: solid 4px #a44a3f;
   padding: 6px;
 }
@@ -115,6 +115,7 @@ header nav a.active {
   padding-left: 20%;
   border: solid 4px #a44a3f;
   padding: 6px;
+  background-color: #f0efeb;
 }
 
 .home-nav {
@@ -147,7 +148,6 @@ header nav a.active {
 
 .city-cards{
   display: flex;
-  background-color: bisque;
   align-content: center;
   justify-content: center;
 }
@@ -156,6 +156,7 @@ header nav a.active {
   align-items: center;
   margin: 10px;
   width: 100%;
+  font-size: large;
 }
 
 .company-overview {
@@ -177,6 +178,7 @@ header nav a.active {
   font-size: x-large;
   border: solid 4px #a44a3f;
   padding: 6px;
+  background-color: #f0efeb;
 }
 
 .service-area {
@@ -189,10 +191,26 @@ header nav a.active {
   padding: 6px;
   display: block;
   text-align: center;
+  background-color: #f0efeb;
 }
 
 .google-map {
   border: solid 4px #a44a3f;
+}
+
+.contact-form{
+  border: solid 4px #a44a3f;
+  padding: 10px;
+}
+
+.contact-form div {
+  font-size: large;
+  font-weight: 400;
+  padding: 6px; 
+}
+
+.text-center {
+  margin-top: 10px;
 }
 /* @media (prefers-color-scheme: light) {
   :root {
