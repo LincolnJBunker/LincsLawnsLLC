@@ -25,7 +25,14 @@ function About() {
       <h2>About Me</h2>
         <Me />
 
+      <p></p>
+
       <h2>Quality of Service</h2>
+      <p className="service-quality">
+      At Alpine Twin Peak Maintenance, excellence is not just a goal, it's our standard. We take pride in delivering services of the utmost quality, where attention to detail meets unwavering effectiveness. 
+      Our commitment to excellence goes beyond the ordinary - it's a promise we uphold in every project, ensuring that each detail is meticulously crafted to exceed your expectations. 
+      Discover the difference of exceptional service where precision and effectiveness converge seamlessly.
+      </p>
 
       <h2>Service Area</h2>
       <p className="service-area">We service to many cities and counties all across the State of Utah</p>

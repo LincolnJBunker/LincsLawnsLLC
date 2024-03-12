@@ -1,8 +1,3 @@
-/* :root {
-  --primary: #bc4123;
-  --secondary: #2b3452;
-} */
-
 a {
   font-weight: 550;
   color: #233D4D;
@@ -16,7 +11,7 @@ body {
   margin: 0;
   align-items: center;
   justify-content: center;
-  display: flex;
+  /* display: flex; */
   padding: 20px;
   font-family:'Hind Siliguir' sans-serif;
   background: #dad7cd;
@@ -27,7 +22,7 @@ header nav {
   display: flex;
   gap: 16px;
   justify-content: end;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
 }
 header nav h1 {
@@ -40,7 +35,7 @@ header nav a{
   border-radius: 4px;
 }
 header nav a.active {
-  background: var(--primary);
+  color: #535bf3
 }
 
 .footer{
@@ -49,6 +44,7 @@ header nav a.active {
   bottom: 0;
   width: 100%;
   text-align: center;
+  padding: 10px;
 }
 
 .footer a {
@@ -98,23 +94,27 @@ header nav a.active {
   flex: 1;
   align-self: center;
   /* margin-right: 100px; */
+  width: 50%;
+  box-sizing: border-box;
   border: solid 4px #a44a3f;
 }
 
 .me-container {
   display: flex;
-  width: 90%;
-  height: 90%;
+  width: 80%;
+  height: 80%;
   margin: auto;
 }
 
 .text-container {
   flex: 1;
   /* background-color: #DCE2AA; */
-  font-size: 2.5vw;
-  padding-left: 20%;
+  font-size: 2.2vw;
+  box-sizing: border-box;
   border: solid 4px #a44a3f;
-  padding: 6px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 35px;
   background-color: #f0efeb;
 }
 
@@ -185,6 +185,20 @@ header nav a.active {
   font-size: x-large;
 }
 
+.service-quality {
+  font-size: x-large;
+  border: solid 4px #a44a3f;
+  padding: 6px;
+  background-color: #f0efeb;
+}
+
+.welcome-intro {
+  font-size: x-large;
+  border: solid 4px #a44a3f;
+  padding: 6px;
+  background-color: #f0efeb;
+}
+
 .map-info {
   font-size: x-large;
   border: solid 4px #a44a3f;
@@ -212,15 +226,37 @@ header nav a.active {
 .text-center {
   margin-top: 10px;
 }
-/* @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
+
+.carousel-image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff; /* Set the text color to contrast with the images */
+}
+
+.carousel-caption .button {
+  margin: 5px; /* Adjust the margin for the desired gap */
+}
+
+.carousel-caption h3,
+.carousel-caption p {
+  margin: 0; /* Remove default margins for better alignment */
+}
+
+.schedule-button {
+  background-color: white;
+  border: 2px white;
+  color: black;
+}
