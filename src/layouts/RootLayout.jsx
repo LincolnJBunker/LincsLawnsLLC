@@ -17,6 +17,10 @@ function RootLayout() {
             </nav>
       </header>
 
+
+      <main>
+        <Outlet />
+      </main>
       <div className="footer">
         <footer>
             <nav>
@@ -30,10 +34,6 @@ function RootLayout() {
             </nav>
         </footer>
     </div>
-
-      <main>
-        <Outlet />
-      </main>
     </div>
   )
 }

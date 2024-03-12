@@ -38,8 +38,10 @@ header nav a.active {
   color: #535bf3
 }
 
-footer {
-  margin-top: auto;
+.footer {
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 .footer a {
@@ -331,4 +333,74 @@ footer {
   background-color: #7e255f;
   border: 2px #7e255f;
   color: white;
+}
+
+.faq {
+  text-align: center;
+  padding: 25px;
+  font-size: x-large;
+  border: solid 4px #a44a3f;
+  /* padding: 1%; */
+  background-color: #f0efeb;
+}
+
+.faq-header {
+  text-align: center;
+  padding: 1%;
+}
+
+.appointment-scheduler {
+  text-align: center;
+}
+
+.calendar-container {
+  text-align: center;
+  padding: 1%;
+}
+
+.calendar {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.time-slots-container h3 {
+  text-align: center;
+  padding: 1%;
+}
+
+.time-slots {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.time-slots button {
+  background-color: #257e44;
+  border: 2px #257e44;
+  color: white;
+  margin: 15px;
+}
+
+.calander-key {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: small;
+  /* text-align: center; */
+}
+
+.appointment-available,
+.appointment-unavailable {
+  width: 10px;
+  height: 10px;
+  margin-right: 5px; /* Adjust margin as needed */
+}
+
+.appointment-available {
+  background-color: 257e44; /* or any color you prefer */
+}
+
+.appointment-unavailable {
+  background-color: grey; /* or any color you prefer */
 }

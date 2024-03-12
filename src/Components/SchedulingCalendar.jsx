@@ -3,6 +3,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import moment from 'moment'
 import axios from 'axios';
+import { Button } from 'react-bootstrap';
 
 function SchedulingCalendar() {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -114,42 +115,21 @@ function SchedulingCalendar() {
 
   return (
     <div>
-      <h1>Appointment Scheduler</h1>
-      <div className="container"></div>
+      <h1 className='appointment-scheduler'>Appointment Scheduler</h1>
       <div className='calendar-container'>
-        <h2>Select Date</h2>
-        <Calendar 
-          onChange={handleDateChange} 
-          value={selectedDate}
-          tileDisabled={({ date }) => greyDates(date)}
-          />
-      </div>
-
-      {selectedDate ? (
-        <div className='time-slots-container'>
-          <h2>Select Time</h2>
-          <div className='time-slots'>
-          {timeSlots.map((time) => {
-            const isSlotBooked = isTimeBooked(selectedDate, time);
-
-            return (
-              <button
-                key={time}
-                onClick={() => handleTimeSelect(time)}
-                disabled={!moment(`${selectedDate.toISOString().split('T')[0]} ${time}`).isAfter(moment()) || isSlotBooked}
-                className={isSlotBooked ? 'booked-time' : ''}
-              >
-                {time}
-              </button>
-            );
-          })}
-          </div>
+        <h3>Select Date of Service</h3>
+        <div className='calendar'>
+          <Calendar
+            onChange={handleDateChange} 
+            value={selectedDate}
+            tileDisabled={({ date }) => greyDates(date)}
+            />
         </div>
-      ) : null}
-
+      </div>
+      
       <div className="calander-key">
         <div>
-          <div className="appoitment-available"></div>
+          <div className="appointment-available"></div>
           <span className="calendar-legend">Appointments Available</span>
         </div>
         <div>
@@ -157,6 +137,29 @@ function SchedulingCalendar() {
           <span className="calendar-legend">No Appoinments Available/Date Passed</span>
         </div>
       </div>
+
+      {selectedDate ? (
+        <div className='time-slots-container'>
+          <h3>Select Time of Service</h3>
+          <div className='time-slots'>
+          {timeSlots.map((time) => {
+            const isSlotBooked = isTimeBooked(selectedDate, time);
+
+            return (
+              <Button
+                key={time}
+                onClick={() => handleTimeSelect(time)}
+                disabled={!moment(`${selectedDate.toISOString().split('T')[0]} ${time}`).isAfter(moment()) || isSlotBooked}
+                className={isSlotBooked ? 'booked-time' : ''}
+              >
+                {time}
+              </Button>
+            );
+          })}
+          </div>
+        </div>
+      ) : null}
+
 
       {selectedTime ? (
         <div>

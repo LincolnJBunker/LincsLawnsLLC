@@ -5,12 +5,12 @@ function FAQs() {
   const navigate = useNavigate();
   return (
     <>
-    <h1>FAQ's</h1>
+    <h1 className="faq-header">Frequently Asked Questions</h1>
     
-    <h2>General Quesitons</h2>
-    <Accordion>
+    <h2 className="faq">General Questions</h2>
+    <Accordion >
       <Accordion.Item eventKey="0">
-        <Accordion.Header>What services do you offer?</Accordion.Header>
+        <Accordion.Header style={{ color: 'black'}}>What services do you offer?</Accordion.Header>
         <Accordion.Body>
           We spealize in lawncare with an emphasis in aerating lawns, pressure washing driveways, sidewalks, and patio surfaces,
           and clean grills and barbeques. To see more information about our services, <NavLink to='/services'>click here</NavLink>.
@@ -60,7 +60,7 @@ function FAQs() {
       </Accordion.Item>
     </Accordion>
 
-    <h2>Lawn care questions</h2>
+    <h2 className="faq">Lawn Care</h2>
     <Accordion>
       <Accordion.Item eventKey="6">
         <Accordion.Header>What does lawn aeration involve?</Accordion.Header>
@@ -105,7 +105,7 @@ function FAQs() {
 
     <p>Interested in aeration? Check out details of this service <NavLink to='/services/lawncare'>here</NavLink>.</p>
 
-    <h2>Power Washing</h2>
+    <h2 className="faq">Power Washing</h2>
     <Accordion>
       <Accordion.Item eventKey="12">
         <Accordion.Header>Is power washing bad for my driveway?</Accordion.Header>
@@ -134,7 +134,7 @@ function FAQs() {
     <p>Interested in power washing? Check out details of this service <NavLink to='/services/powerwashing'>here</NavLink>.</p>
 
 
-    <h2>Grill Cleaning</h2>
+    <h2 className="faq">Grill Cleaning</h2>
     <Accordion>
       <Accordion.Item eventKey="15">
         <Accordion.Header>What does grill cleaning invovle?</Accordion.Header>
