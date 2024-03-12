@@ -3,9 +3,9 @@ import { Card } from "react-bootstrap"
 function TestimonialCard({testimonial}) {
   const {testimonialName, testimonialCity, testimonialDescription} = testimonial
   return (
-    <div className="testimonial-card">
-      <div className="">
-        <Card>
+    <div className="hello">
+      <div>
+        <Card className="about-card">
           <Card.Body>
             <p>{testimonialDescription}</p>
             <h5>{testimonialName}</h5>

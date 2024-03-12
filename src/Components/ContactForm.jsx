@@ -59,7 +59,7 @@ const ContactForm = () => {
                         <textarea className="form-control" rows="10" value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
                     </div>
                     <div className="text-center">
-                        <Button className="button" type="submit">Submit</Button>
+                        <Button className="contact-button" type="submit">Submit</Button>
                     </div>
                 </form>
             </div>

@@ -11,7 +11,7 @@ function Home() {
   const navigate = useNavigate();
   return (
     <div className="Home">
-      <h2 className="home-welcome">Welcome</h2>
+      {/* <h2 className="home-welcome">Welcome</h2> */}
       <div className="welcome-carousel">
         <Carousel controls indicators>
           <Carousel.Item>
@@ -49,7 +49,7 @@ function Home() {
           </Carousel.Item>
         </Carousel>
       </div>
-      <h3>Who we are and what we do</h3>
+      <h3 className="who-and-what">Who we are and what we do</h3>
       <p className="welcome-intro">
         Discover the beauty of pristine lawns, spotless driveways, and gleaming grills with Alpine Twin Peak Maintenance. 
         Proudly serving the Salt Lake City, Utah community, we specialize in lawn aeration, driveway pressure washing, and grill cleaning. 

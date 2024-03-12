@@ -76,27 +76,24 @@ function LoginCreateAccount() {
     
     return (
         <>
-        {/* {show && (
-            <Alert variant='success' onClose={() => setShow(false)} dismissible>
-                wassup
-            </Alert>
-        )} */}
-    <nav>
+    <nav className='login-nav'>
         {adminId ?
-            <Button className="button" onClick={handleLogout}>Logout</Button> :
-            <Button className="button" onClick={() => setShow(true)}>Login</Button>
+            <Button className="login-btn" onClick={handleLogout}>Logout</Button> :
+            <Button className="login-btn" onClick={() => setShow(true)}>Login</Button>
         }
 
     </nav>
     {!adminId &&
-    <form>
-        <input type='text' value={adminName} placeholder='Admin Name' onChange={(e) => setAdminName(e.target.value)} />
-        <input type="password" value={adminPassword} placeholder='Password' onChange={(e) => setAdminPassword(e.target.value)}  />
+    <form className='login-form'>
+        <div className="login-inputs">
+            <input type='text' value={adminName} placeholder='Admin Name' onChange={(e) => setAdminName(e.target.value)} />
+            <input type="password" value={adminPassword} placeholder='Password' onChange={(e) => setAdminPassword(e.target.value)}  />
+        </div>
         <Button onClick={handleLogin} className="button">Submit</Button>
     </form>
     }
     {adminId &&
-        <h3>Welcome admin {adminName}</h3>
+        <h3 className='welcome-admin'>Welcome admin {adminName}</h3>
     }
     
     </>

@@ -4,15 +4,17 @@ import { Button } from "react-bootstrap";
 function Schedule() {
   const navigate = useNavigate();
   return (
-    <div className="schedule">
-      <h3>Schedule an Appointment</h3>
-      <Button className="button" onClick={() => navigate('appointment')}>Yes</Button>
-      <Button className="button" onClick={() => navigate('/')}>No</Button>
+    <div className="page-container">
+      <div className="schedule">
+        <h3>Schedule an Appointment</h3>
+        <Button className="button" onClick={() => navigate('appointment')}>Yes</Button>
+        <Button className="no-button" onClick={() => navigate('/')}>No</Button>
 
-      <p></p>
+        <p></p>
 
-      <h3>Reschedule or Cancel an Appointment?</h3>
-      <Button className="button" onClick={() => navigate('edit')}>View Appointments</Button>
+        <h3>Reschedule or Cancel an Appointment?</h3>
+        <Button className="button" onClick={() => navigate('edit')}>View Appointments</Button>
+      </div>
     </div>
   )
 }

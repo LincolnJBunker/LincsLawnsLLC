@@ -24,33 +24,12 @@ useEffect(() => {
 
   const allTestimonials = testimonials.map((testimonial) => <TestimonialCard testimonial={testimonial} key={testimonial.id} />)
 
-  // let testimonialAdd = async (e) => {
-  //   e.preventDefault()
-  //   axios.post('/api/testimonial/add', {
-  //     testimonialName: 'testimonialName',
-  //     testimonialCity: 'testimonialCity',
-  //     testimonialDescription: 'testimonialDescription'
-  //   })
-  //   .then((res) => {
-  //     console.log(res.data)
-  //     setTestimonials(res.data)
-  //     // setA(a + 1)
-  //     if(res.data.status) {
-  //       resetFields()
-  //     }
-  //   })
-  // }
-
-  // function resetFields(){
-  //   setTestimonialName('')
-  //   setTestimonialCity('')
-  //   setTestimonialDescription('')
-  // }
-
   return (
     <>
-    <h1>Testimonial Page</h1>
-
+    <h1 className="testimonial-header">Testimonials</h1>
+    <p className="testimonial-info">
+      See what others have to say about Alpine Twin Peak Maintenance
+    </p>
     {allTestimonials}
 
     <TestimonialForm setTestimonials={setTestimonials} />

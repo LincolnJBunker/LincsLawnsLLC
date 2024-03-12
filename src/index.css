@@ -27,7 +27,7 @@ header nav {
 }
 header nav h1 {
   margin-right: auto;
-  border-bottom: 3px solid #a44a3f;
+  border-bottom: 4px solid #a44a3f;
 }
 header nav a{
   text-decoration: none;
@@ -38,13 +38,8 @@ header nav a.active {
   color: #535bf3
 }
 
-.footer{
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  padding: 10px;
+footer {
+  margin-top: auto;
 }
 
 .footer a {
@@ -177,7 +172,7 @@ header nav a.active {
 .mission-and-values {
   font-size: x-large;
   border: solid 4px #a44a3f;
-  padding: 6px;
+  padding: 1%;
   background-color: #f0efeb;
 }
 
@@ -188,21 +183,21 @@ header nav a.active {
 .service-quality {
   font-size: x-large;
   border: solid 4px #a44a3f;
-  padding: 6px;
+  padding: 1%;
   background-color: #f0efeb;
 }
 
 .welcome-intro {
   font-size: x-large;
   border: solid 4px #a44a3f;
-  padding: 6px;
+  padding: 1%;
   background-color: #f0efeb;
 }
 
 .map-info {
   font-size: x-large;
   border: solid 4px #a44a3f;
-  padding: 6px;
+  padding: 1%;
   display: block;
   text-align: center;
   background-color: #f0efeb;
@@ -259,4 +254,81 @@ header nav a.active {
   background-color: white;
   border: 2px white;
   color: black;
+}
+
+.who-and-what {
+  padding-top: 2%;
+}
+
+.contact-button {
+  background-color: #257e44;
+  border: 2px #257e44;
+  color: white;
+  width: 200px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px; /* Set the maximum width of the form */
+  margin: auto; /* Center the form horizontally */
+}
+
+.login-inputs {
+  margin-bottom: 10px; 
+  display: flex;
+  flex-direction: column;
+}
+
+.login-inputs input {
+  margin-bottom: 10px;
+}
+
+.button {
+  margin-top: 10px;
+}
+
+.welcome-admin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-btn {
+  background-color: white;
+  border: 2px white;
+  color: black;
+}
+
+.testimonial-header {
+  text-align: center;
+}
+
+.testimonial-info {
+  font-size: x-large;
+  border: solid 4px #a44a3f;
+  padding: 1%;
+  background-color: #f0efeb;
+}
+
+.page-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.schedule {
+  text-align: center;
+}
+
+.schedule button {
+  margin: 5px;
+}
+
+.no-button {
+  background-color: #7e255f;
+  border: 2px #7e255f;
+  color: white;
 }
