@@ -196,6 +196,14 @@ header nav a.active {
   background-color: #f0efeb;
 }
 
+.more-info {
+  font-size: x-large;
+  border: solid 4px #a44a3f;
+  padding: 1%;
+  background-color: #f0efeb;
+  text-align: center;
+}
+
 .map-info {
   font-size: x-large;
   border: solid 4px #a44a3f;

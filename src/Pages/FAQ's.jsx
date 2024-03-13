@@ -11,7 +11,7 @@ function FAQs() {
     <Accordion >
       <Accordion.Item eventKey="0">
         <Accordion.Header style={{ color: 'black'}}>What services do you offer?</Accordion.Header>
-        <Accordion.Body>
+        <Accordion.Body style={{ backgroundColor: 'red' }}>
           We spealize in lawncare with an emphasis in aerating lawns, pressure washing driveways, sidewalks, and patio surfaces,
           and clean grills and barbeques. To see more information about our services, <NavLink to='/services'>click here</NavLink>.
         </Accordion.Body>
@@ -172,9 +172,10 @@ function FAQs() {
     </Accordion>
     <p>Interested in grill cleaning? Check out details of this service <NavLink to='/services/grillcleaning'>here</NavLink>.</p>
 
-
-      <p>Have another question? Send us a message!</p>
-      <Button className="button" onClick={() => navigate(`/contact`)}>Send Message</Button>
+      <div className="more-info">
+        <p>Have another question? Send us a message!</p>
+        <Button className="button" onClick={() => navigate(`/contact`)}>Send Message</Button>
+      </div>
 
     </>
   )
