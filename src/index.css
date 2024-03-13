@@ -1,3 +1,4 @@
+
 a {
   font-weight: 550;
   color: #233D4D;
@@ -42,11 +43,16 @@ header nav a.active {
   align-items: center;
   justify-content: center;
   display: flex;
+  margin-top: 3%;
 }
 
 .footer a {
   margin-right: 25px;
   text-decoration: none;
+}
+
+.footer a.active {
+  color: #535bf3
 }
 
 .card-img-top {
@@ -268,6 +274,7 @@ header nav a.active {
 
 .who-and-what {
   padding-top: 2%;
+  text-align: center;
 }
 
 .contact-button {
@@ -411,4 +418,52 @@ header nav a.active {
 
 .appointment-unavailable {
   background-color: grey; /* or any color you prefer */
+}
+
+.learn-more {
+  text-align: center;
+  padding: 1%;
+  font-size: x-large;
+  border: solid 4px #a44a3f;
+  background-color: #f0efeb;
+  margin-bottom: 3%;
+}
+
+.home-container {
+  /* padding: 1%; */
+  display: flex;
+  justify-content: space-between;
+  /* background-color: #f0efeb; */
+}
+
+.home-left {
+  width: 48%;
+  background: #dad7cd url('./assets/mountains.jpg') center/cover no-repeat;
+  background-position: center 72%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.home-left h3 {
+  text-align: center;
+  color: black;
+  border: solid 4px #a44a3f;
+  background-color: #f0efeb;
+  padding: 1%;
+}
+
+.home-right {
+  width: 48%;
+  padding-top: 3%;
+  
+}
+
+.home-right h3 {
+  text-align: center;
+  font-size: x-large;
 }

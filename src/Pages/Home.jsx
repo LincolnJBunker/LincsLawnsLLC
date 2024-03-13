@@ -2,7 +2,8 @@ import Footer from "../Components/Footer"
 import Header from "../Components/Header"
 import { Outlet, useNavigate } from "react-router-dom";
 import { Button, Carousel } from "react-bootstrap";
-import logo_png from '../assets/logo.png';
+import ContactForm from "../Components/ContactForm";
+import mountains_img from '../assets/mountains.jpg';
 import welcomelawn_img from '../assets/welcome-lawn.jpg';
 import welcomedriveway_img from '../assets/welcome-driveway.jpg'
 import welcomegrill_img from '../assets/welcome-grill.jpg'
@@ -17,8 +18,11 @@ function Home() {
           <Carousel.Item>
             <img className='carousel-image' src={welcomelawn_img} alt="slide 1" />
             <Carousel.Caption>
-              <p>Lawn Care</p>
-              <h2>Lush, pristine grass</h2>
+              <div className="home-description">
+                <p>Lawn Care</p>
+                <h2>Lush, pristine grass</h2>
+
+              </div>
               <div>
                 <Button className="button" onClick={() => navigate('/services/lawncare')}>Learn More</Button>
                 <Button className='schedule-button' onClick={() => navigate('/schedule/appointment')}>Schedule Now</Button>
@@ -49,23 +53,29 @@ function Home() {
           </Carousel.Item>
         </Carousel>
       </div>
-      <h3 className="who-and-what">Who we are and what we do</h3>
+      <h3 className="who-and-what">Welcome</h3>
       <p className="welcome-intro">
         Discover the beauty of pristine lawns, spotless driveways, and gleaming grills with Alpine Twin Peak Maintenance. 
         Proudly serving the Salt Lake City, Utah community, we specialize in lawn aeration, driveway pressure washing, and grill cleaning. 
         Elevate the curb appeal of your home with our professional services. For a cleaner, greener, and more welcoming outdoor space, trust Alpine Twin Peak Maintenance.
       </p>
+      
+      <div className="learn-more">
+        <p>To learn more about Alpine Twin Peak Maintenance, click below</p>
+        <Button className="button" onClick={() => navigate('/about')}>Learn More</Button>
+      </div>
 
-      <p>brief information about buisness</p>
-      <p>Click below to learn more</p>
-      <Button className="button" onClick={() => navigate('/about')}>Learn More</Button>
+      <div className="home-container">
+        <div className="home-left">
+          <h3>Schedule an Appointment Below</h3>
+          <Button className="button" onClick={() => navigate('/schedule/appointment')}>Here</Button>
+        </div>
 
-      <p />
-      <h3>Put some cool pictures of mountains here</h3>
-
-      <h3>Schedule an Appointment Below</h3>
-      <Button className="button" onClick={() => navigate('/schedule/appointment')}>Here</Button>
-
+        <div className="home-right">
+        <h3>Request a Quote?</h3>
+          <ContactForm />
+        </div>
+      </div>
     </div>
   )
 }
