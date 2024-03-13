@@ -327,6 +327,7 @@ header nav a.active {
   border: solid 4px #a44a3f;
   padding: 1%;
   background-color: #f0efeb;
+  text-align: center;
 }
 
 .page-container {
@@ -355,69 +356,12 @@ header nav a.active {
   padding: 25px;
   font-size: x-large;
   border: solid 4px #a44a3f;
-  /* padding: 1%; */
   background-color: #f0efeb;
 }
 
 .faq-header {
   text-align: center;
   padding: 1%;
-}
-
-.appointment-scheduler {
-  text-align: center;
-}
-
-.calendar-container {
-  text-align: center;
-  padding: 1%;
-}
-
-.calendar {
-  max-width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.time-slots-container h3 {
-  text-align: center;
-  padding: 1%;
-}
-
-.time-slots {
-  max-width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.time-slots button {
-  background-color: #257e44;
-  border: 2px #257e44;
-  color: white;
-  margin: 15px;
-}
-
-.calander-key {
-  max-width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: small;
-  /* text-align: center; */
-}
-
-.appointment-available,
-.appointment-unavailable {
-  width: 10px;
-  height: 10px;
-  margin-right: 5px; /* Adjust margin as needed */
-}
-
-.appointment-available {
-  background-color: 257e44; /* or any color you prefer */
-}
-
-.appointment-unavailable {
-  background-color: grey; /* or any color you prefer */
 }
 
 .learn-more {
@@ -466,4 +410,110 @@ header nav a.active {
 .home-right h3 {
   text-align: center;
   font-size: x-large;
+}
+
+.delete-button {
+  background-color: #7e255f;
+  border: #7e255f;
+}
+
+.edit-button {
+  background-color: #257e44;
+  border: #257e44;
+}
+
+.appointment-scheduler {
+  text-align: center;
+  margin-bottom: 2%;
+  margin-top: 1%;
+}
+
+.calendar-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.calendar {
+  width: 48%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* text-align: center; */
+
+}
+.calander-key {
+  margin-right: 7%;
+  /* display: flex; */
+  /* justify-content: space-between; */
+}
+
+.appointment-available,
+.appointment-unavailable {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.appointment-available {
+  background-color: #257e44;
+}
+
+.appointment-unavailable {
+  background-color: grey;
+}
+
+.time-slots-container {
+  width: 48%;
+  text-align: center;
+  padding-right: 10%;
+}
+
+.time-slots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* padding-top: 1%; */
+}
+
+.time-slots button {
+  width: 40%;
+  margin-bottom: 23px;
+  background-color: #257e44;
+  border: #257e44;
+}
+
+.appointment-details {
+  margin-top: 1%;
+  text-align: center;
+}
+
+.appointment-info {
+  padding: 3%;
+  font-size: x-large;
+  border: solid 4px #a44a3f;
+  background-color: #f0efeb;
+}
+
+.service-info select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  outline: none;
+}
+
+.appointment-inputs {
+  padding-top: 3%;
+}
+
+.appointment-form {
+  padding: 1%;
 }

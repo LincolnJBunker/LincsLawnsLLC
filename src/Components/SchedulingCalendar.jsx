@@ -116,64 +116,71 @@ function SchedulingCalendar() {
   return (
     <div>
       <h1 className='appointment-scheduler'>Appointment Scheduler</h1>
-      <div className='calendar-container'>
-        <h3>Select Date of Service</h3>
+      <div className="calendar-container">
         <div className='calendar'>
-          <Calendar
-            onChange={handleDateChange} 
-            value={selectedDate}
-            tileDisabled={({ date }) => greyDates(date)}
-            />
-        </div>
-      </div>
-      
-      <div className="calander-key">
-        <div>
-          <div className="appointment-available"></div>
-          <span className="calendar-legend">Appointments Available</span>
-        </div>
-        <div>
-          <div className="appointment-unavailable"></div>
-          <span className="calendar-legend">No Appoinments Available/Date Passed</span>
-        </div>
-      </div>
-
-      {selectedDate ? (
-        <div className='time-slots-container'>
-          <h3>Select Time of Service</h3>
-          <div className='time-slots'>
-          {timeSlots.map((time) => {
-            const isSlotBooked = isTimeBooked(selectedDate, time);
-
-            return (
-              <Button
-                key={time}
-                onClick={() => handleTimeSelect(time)}
-                disabled={!moment(`${selectedDate.toISOString().split('T')[0]} ${time}`).isAfter(moment()) || isSlotBooked}
-                className={isSlotBooked ? 'booked-time' : ''}
-              >
-                {time}
-              </Button>
-            );
-          })}
+          <h3>Select Date of Service</h3>
+          <div>
+            <Calendar
+              onChange={handleDateChange} 
+              value={selectedDate}
+              tileDisabled={({ date }) => greyDates(date)}
+              />
+          </div>
+        <div className="calander-key">
+          <div>
+            <div className="appointment-available"></div>
+            <span className="calendar-legend">Appointments Available</span>
+          </div>
+          <div>
+            <div className="appointment-unavailable"></div>
+            <span className="calendar-legend">No Appoinments Available/Date Passed</span>
           </div>
         </div>
-      ) : null}
+        </div>
+        
+
+        {selectedDate ? (
+          <div className='time-slots-container'>
+            <h3>Select Time of Service</h3>
+            <div className='time-slots'>
+            {timeSlots.map((time) => {
+              const isSlotBooked = isTimeBooked(selectedDate, time);
+
+              return (
+                <Button
+                  key={time}
+                  onClick={() => handleTimeSelect(time)}
+                  disabled={!moment(`${selectedDate.toISOString().split('T')[0]} ${time}`).isAfter(moment()) || isSlotBooked}
+                  className={isSlotBooked ? 'booked-time' : ''}
+                >
+                  {time}
+                </Button>
+              );
+            })}
+            </div>
+          </div>
+        ) : null}
+      </div>
 
 
       {selectedTime ? (
-        <div>
-          <h2>Appointment Details</h2>
-          <p>Date: {moment(selectedDate).format('MMMM D, YYYY')}</p>
-          <p>Time: {selectedTime}</p>
-          <h4>Select desired service below</h4>
-          <select name="service" value={selectedService} onChange={handleServiceSelect}>
-            <option value="selectService">Select a service</option>
-            <option value="Aeration">Aeration</option>
-            <option value="Powerwashing">Powerwashing</option>
-            <option value="GrillCleaning">Grill Cleaning</option>
-          </select>
-          <div>
+        <div className='appointment-details'>
+          <div className="appointment-info">
+            <h2>Appointment Details</h2>
+            <p>Date: {moment(selectedDate).format('MMMM D, YYYY')}</p>
+            <p>Time: {selectedTime}</p>
+            <h4>Select desired service below</h4>
+            <div className="service-info">
+              <select name="service" value={selectedService} onChange={handleServiceSelect}>
+                <option value="selectService">Select a service</option>
+                <option value="Aeration">Aeration</option>
+                <option value="Powerwashing">Powerwashing</option>
+                <option value="GrillCleaning">Grill Cleaning</option>
+              </select>
+            </div>
+          </div>
+
+          <div className='appointment-inputs'>
           <h2>Appointment Form</h2>
           <div className="appointment-form">
             <label htmlFor="first-name">First Name</label>
@@ -183,7 +190,7 @@ function SchedulingCalendar() {
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             />
-        </div>
+            </div>
 
         <div className="appointment-form">
             <label htmlFor="last-name">Last Name</label>
@@ -225,10 +232,10 @@ function SchedulingCalendar() {
             />
         </div>
             </div>
-          <button onClick={handleScheduleAppointment}>Schedule Appointment</button>
+          <Button className='button' onClick={handleScheduleAppointment}>Schedule Appointment</Button>
         </div>
       ) : null}
-    </div>
+      </div>
   );
 }
 

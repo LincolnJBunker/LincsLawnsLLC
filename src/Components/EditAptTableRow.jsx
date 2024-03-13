@@ -67,10 +67,10 @@ function EditAptTableRow({ appointment, deleteAppointment, setAppointments, emai
         <td>{appointment.hour}</td>
         <td>{appointment.service}</td>
         <td>
-            <Button className="button" onClick={()=> deleteAppointment(appointment.id)}>Delete</Button>
+            <Button className="delete-button" onClick={()=> deleteAppointment(appointment.id)}>Delete</Button>
         </td>
         <td>
-            <Button className="button" onClick={() => setIsEditing(true)}>Edit</Button>
+            <Button className="edit-button" onClick={() => setIsEditing(true)}>Edit</Button>
         </td>
     </tr>
   )

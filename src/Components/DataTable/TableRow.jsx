@@ -121,10 +121,10 @@ const handleSave = () => {
         <td>{data.hour}</td>
         <td>{data.service}</td>
         <td>
-          <Button className="button" onClick={handleDelete}>Delete</Button>
+          <Button className="delete-button" onClick={handleDelete}>Delete</Button>
         </td>
         <td>
-          <Button className="button" onClick={() => setIsEditing(true)}>Edit</Button>
+          <Button className="edit-button" onClick={() => setIsEditing(true)}>Edit</Button>
         </td>
     </tr>
   )
