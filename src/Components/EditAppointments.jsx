@@ -52,7 +52,7 @@ function EditAppointments() {
 
   return (
     <>
-    <h3>Please insert your email to edit or cancel an appointment</h3>
+    <h3 className="insert-email">Please insert your email to edit or cancel an appointment</h3>
     
     <div className="edit-form">
         <label htmlFor="email">Email</label>
@@ -63,7 +63,7 @@ function EditAppointments() {
         onChange={(e) => setEmail(e.target.value)}
         />
     </div>
-    <Button className="button" onClick={getAppointment}>Submit</Button>
+    <Button className="user-button" onClick={getAppointment}>Submit</Button>
     {appointments.length > 0 && (
 
         <div>

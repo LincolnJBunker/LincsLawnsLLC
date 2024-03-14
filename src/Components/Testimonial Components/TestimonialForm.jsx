@@ -59,7 +59,7 @@ function TestimonialForm({ setTestimonials }) {
         onChange={(e) => setCity(e.target.value)}
         />
       </div>
-      <Button className='button' type="submit">Submit</Button>
+      <Button className='test-button' type="submit">Submit</Button>
     </form>
   )
 }
