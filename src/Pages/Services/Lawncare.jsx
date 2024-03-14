@@ -1,11 +1,23 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "react-bootstrap";
+import { Button, Carousel } from "react-bootstrap";
 function Lawncare() {
   const navigate = useNavigate();
 
   return (
     <div className="lawncare">
-      Display Pictures of pretty lawns here 
+      <div className="services-carousel">
+        <Carousel controls indicators>
+          <Carousel.Item>
+            <img src='' alt="slide1" />
+          </Carousel.Item>
+          <Carousel.Item>
+            <img src='' alt="slide2" />
+          </Carousel.Item>
+          <Carousel.Item>
+            <img src="" alt="slide3" />
+          </Carousel.Item>
+        </Carousel>
+      </div>
     <p></p>
       maybe explain a little bit why aerating lawns is good 
     <p></p>

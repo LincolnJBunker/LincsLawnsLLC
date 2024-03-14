@@ -3,8 +3,8 @@ import { NavLink, Outlet } from "react-router-dom";
 function ServicesLayout() {
   return (
     <div className="services-layout">
-        <h2>Services offered</h2>
-        <h3>Expert Services Tailored to Your Needs</h3>
+        <h2 className="services-offered">Services Offered</h2>
+        <h4 className="service--page">To learn more about the services we offer, click on each link below  </h4>
       <div className="nav-links-container">
         <h3>
         <NavLink to="lawncare">Lawncare Services</NavLink>

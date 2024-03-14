@@ -76,6 +76,8 @@ function LoginCreateAccount() {
     
     return (
         <>
+
+    <div className='login-container'>
     <nav className='login-nav'>
         {adminId ?
             <Button className="login-btn" onClick={handleLogout}>Logout</Button> :
@@ -92,6 +94,9 @@ function LoginCreateAccount() {
         <Button onClick={handleLogin} className="button">Submit</Button>
     </form>
     }
+
+    </div>
+
     {adminId &&
         <h3 className='welcome-admin'>Welcome admin {adminName}</h3>
     }

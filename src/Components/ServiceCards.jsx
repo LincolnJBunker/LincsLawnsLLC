@@ -17,7 +17,7 @@ function ServiceCards() {
                 <Card.Body>
                     <Card.Title>Lawn Care</Card.Title>
                     <Card.Text>
-                        Services including Aeration, lawn mowing, edging, to help your lawn be better than your neighbors
+                        Services including Aeration, lawn mowing, edging, to help your lawn be green and healthy
                     </Card.Text>
                     <Button className="button" onClick={() => navigate(`/services/lawncare`)}>More Information</Button>
                 </Card.Body>
@@ -30,7 +30,7 @@ function ServiceCards() {
                 <Card.Body>
                     <Card.Title>Powerwashing</Card.Title>
                     <Card.Text>
-                        Got a dirty driveway? Powerwashing will make it look like the cement was poured yesterday
+                        Power washing your driveway can help restore it's look, and eliminate stains and debris
                     </Card.Text>
                     <Button className="button" onClick={() => navigate(`/services/powerwashing`)}>More Information</Button>
                 </Card.Body>
@@ -43,7 +43,7 @@ function ServiceCards() {
                 <Card.Body>
                     <Card.Title>Grill Cleaning</Card.Title>
                     <Card.Text>
-                        When was the last time you REALLY cleaned your BBQ... I got you covered!
+                        We'll help your barbeque look as good as new with our interior and exterior deep clean
                     </Card.Text>
                     <Button className="button" onClick={() => navigate(`/services/grillcleaning`)}>More Information</Button>
                 </Card.Body>

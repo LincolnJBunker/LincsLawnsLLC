@@ -1,10 +1,22 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "react-bootstrap";
+import { Button, Carousel } from "react-bootstrap";
 function Powerwashing() {
   const navigate = useNavigate();
   return (
     <div className="powerwashing">
-    Display Pictures of pretty driveways here 
+      <div className="services-carousel">
+        <Carousel controls indicators>
+          <Carousel.Item>
+            <img src='' alt="slide1" />
+          </Carousel.Item>
+          <Carousel.Item>
+            <img src='' alt="slide2" />
+          </Carousel.Item>
+          <Carousel.Item>
+            <img src="" alt="slide3" />
+          </Carousel.Item>
+        </Carousel>
+      </div>
     <p></p>
       maybe explain a little bit why clean driveway is good 
     <p></p>
