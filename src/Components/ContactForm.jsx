@@ -43,6 +43,7 @@ const ContactForm = () => {
 
         return (
             <div className="contact-form">
+                <h3 className="contact-header">Send us a message/Request a quote</h3>
                 <form name="contact-form" onSubmit={handleSubmit} method="POST">
                     <div className="form-group">
                         <label htmlFor="name">Name</label>

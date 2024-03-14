@@ -67,12 +67,16 @@ function Home() {
 
       <div className="home-container">
         <div className="home-left">
-          <h3>Schedule an Appointment Below</h3>
-          <Button className="button" onClick={() => navigate('/schedule/appointment')}>Here</Button>
+          <div className="left-img">
+            <img src={mountains_img} alt="lone peak" />
+          </div>
+          <div className="left-content">
+            <h3>Schedule an Appointment Below</h3>
+            <Button className="button" onClick={() => navigate('/schedule/appointment')}>Here</Button>
+          </div>
         </div>
 
         <div className="home-right">
-        <h3>Request a Quote?</h3>
           <ContactForm />
         </div>
       </div>

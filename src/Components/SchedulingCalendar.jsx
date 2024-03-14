@@ -149,6 +149,7 @@ function SchedulingCalendar() {
               return (
                 <Button
                   key={time}
+                  variant='secondary'
                   onClick={() => handleTimeSelect(time)}
                   disabled={!moment(`${selectedDate.toISOString().split('T')[0]} ${time}`).isAfter(moment()) || isSlotBooked}
                   className={isSlotBooked ? 'booked-time' : ''}
