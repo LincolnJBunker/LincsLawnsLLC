@@ -103,7 +103,7 @@ function FAQs() {
       </Accordion.Item>
     </Accordion>
 
-    <p>Interested in aeration? Check out details of this service <NavLink to='/services/lawncare'>here</NavLink>.</p>
+    {/* <p>Interested in aeration? Check out details of this service <NavLink to='/services/lawncare'>here</NavLink>.</p> */}
 
     <h2 className="faq">Power Washing</h2>
     <Accordion>
@@ -131,7 +131,7 @@ function FAQs() {
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>
-    <p>Interested in power washing? Check out details of this service <NavLink to='/services/powerwashing'>here</NavLink>.</p>
+    {/* <p>Interested in power washing? Check out details of this service <NavLink to='/services/powerwashing'>here</NavLink>.</p> */}
 
 
     <h2 className="faq">Grill Cleaning</h2>
@@ -170,7 +170,7 @@ function FAQs() {
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>
-    <p>Interested in grill cleaning? Check out details of this service <NavLink to='/services/grillcleaning'>here</NavLink>.</p>
+    {/* <p>Interested in grill cleaning? Check out details of this service <NavLink to='/services/grillcleaning'>here</NavLink>.</p> */}
 
       <div className="more-info">
         <p>Have another question? Send us a message!</p>

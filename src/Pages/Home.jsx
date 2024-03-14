@@ -41,7 +41,7 @@ function Home() {
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
-            <img className='carousel-image' src={welcomegrill_img} alt="" />
+            <img className='carousel-image-grill' src={welcomegrill_img} alt="" />
             <Carousel.Caption>
               <p>Grill Cleaning</p>
               <h2>Shiny, stainless grills</h2>
