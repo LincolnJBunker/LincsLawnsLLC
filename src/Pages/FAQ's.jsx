@@ -11,7 +11,7 @@ function FAQs() {
     <Accordion >
       <Accordion.Item eventKey="0">
         <Accordion.Header style={{ color: 'black'}}>What services do you offer?</Accordion.Header>
-        <Accordion.Body style={{ backgroundColor: 'red' }}>
+        <Accordion.Body>
           We spealize in lawncare with an emphasis in aerating lawns, pressure washing driveways, sidewalks, and patio surfaces,
           and clean grills and barbeques. To see more information about our services, <NavLink to='/services'>click here</NavLink>.
         </Accordion.Body>
