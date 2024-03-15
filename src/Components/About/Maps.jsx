@@ -20,7 +20,7 @@ function Maps() {
     const [parkCity, setParkCity] = useState(false);
     const [moab, setMoab] = useState(false)
 
-    const MapComponent = useMap();
+    // const MapComponent = useMap();
 
     const handleMapClick = (e) => {
         let coords = {
