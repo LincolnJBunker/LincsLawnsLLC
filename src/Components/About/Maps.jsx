@@ -10,6 +10,7 @@ import {
 import mapsAPIKey from '../../../enviornmentVariables';
 
 function Maps() {
+    const [isMapInitialized, setMapInitialized] = useState(false);
     const [path, setPath] = useState([]);
     const slcMarker = { lat: 40.75, lng: -111.84};
     const provoMarker = { lat: 40.26, lng: -111.69};
@@ -18,38 +19,17 @@ function Maps() {
     const [slc, setSlc] = useState(false);
     const [provo, setProvo] = useState(false);
     const [parkCity, setParkCity] = useState(false);
-    const [moab, setMoab] = useState(false)
-
-    // const MapComponent = useMap();
-
-    const handleMapClick = (e) => {
-        let coords = {
-            lat: e.latLng.lat(),
-            lng: e.latLng.lng()
-        }
-        setPath([...path, coords])
-    }
-
-    const handleMapDragStart = () => {
-        console.log('Map drag start');
-        const newPosition = MapComponent.getCenter()
-        MapComponent.panTo(newPosition)
-    };
-
-    const handleMapDragEnd = () => {
-        console.log('Map drag end');
-    };
+    const [moab, setMoab] = useState(false);
 
   return (
     <APIProvider apiKey={mapsAPIKey}>
         <div className='google-map'style={ {height: "100vh" ,}}>
             <Map 
-                zoom={7.2} 
-                center={slcMarker} 
+                zoom={isMapInitialized ? undefined : 15} 
+                center={isMapInitialized ? undefined : slcMarker}
+                onIdle={() => setMapInitialized(true)}
                 mapId= 'b695d0d3d3392956'
-                onClick={handleMapClick}
-                onDragStart={handleMapDragStart}
-                onDragEnd={handleMapDragEnd} 
+
             >
                 <AdvancedMarker position={slcMarker} onClick={() => setSlc(true)}>
                     <Pin/>
